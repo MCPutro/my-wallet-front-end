@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@color/primerLight"
+        android:id="@+id/layoutRootContainer"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+    <ImageView
+            android:id="@+id/picLogo"
+            android:layout_height="130dp"
+            android:layout_width="100dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/app_name" />
+
+    <LinearLayout
+            android:background="@color/primerLight"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+        <TextView
+                android:id="@+id/textName"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="Text Name"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
+
+        <TextView
+                android:id="@+id/textBio"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="Text Description"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

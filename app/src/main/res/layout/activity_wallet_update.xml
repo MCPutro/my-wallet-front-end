@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/body"
+
+    android:fitsSystemWindows="true"
+
+    tools:context=".Activity_Wallet_Update"
+    >
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/wallet_update_toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:elevation="10dp"
+        >
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/wallet_update_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/toolbar"
+            app:title="Wallet"
+            app:titleTextColor="@android:color/black"
+            app:menu="@menu/menu_save"
+            app:navigationIcon="@drawable/ic_round_arrow_back_24_black"
+
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lineWhite"
+        android:layout_below="@+id/wallet_update_toolbar_layout"
+
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/wallet_update_save"
+        android:layout_below="@+id/wallet_update_toolbar_layout"
+
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp"
+            >
+            <TextView
+                android:id="@+id/wallet_update_tid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/titillium_web_regular"
+                android:text="#Id"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/wallet_update_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:textSize="16sp"
+                android:textColor="#939BAC"
+                android:text="@string/test_text"
+                />
+
+            <TextView
+                android:id="@+id/wallet_update_type_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+
+                android:fontFamily="@font/titillium_web_regular"
+                android:text="Type"
+                android:textColor="#939BAC"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/wallet_update_type_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="5dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="0dp"
+
+                app:cardBackgroundColor="@color/formField"
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    >
+
+                    <TextView
+                            android:id="@+id/wallet_update_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_toStartOf="@+id/zxc"
+                            android:gravity="center|start"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="0dp"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            />
+
+                    <ImageView
+                        android:id="@+id/zxc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_round_unfold_more_24"
+                        android:layout_marginEnd="5dp"
+                        />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:id="@+id/wallet_update_name_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+
+                android:fontFamily="@font/titillium_web_regular"
+                android:text="Name"
+                android:textColor="#939BAC"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/wallet_update_name_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="5dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/formField"
+                app:strokeColor="@color/formField"
+                >
+
+                <EditText
+                    android:id="@+id/wallet_update_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@null"
+                    android:inputType="textShortMessage"
+                    android:lines="1"
+                    android:paddingStart="10dp"
+                    android:paddingTop="0dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:theme="@style/customEditText"
+
+                    />
+            </com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:id="@+id/wallet_update_nominal_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+
+                android:fontFamily="@font/titillium_web_regular"
+                android:text="Nominal"
+                android:textColor="#939BAC"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/wallet_update_nominal_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="5dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/formField"
+                app:strokeColor="@color/formField"
+                >
+
+                <EditText
+                    android:id="@+id/wallet_update_nominal"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@null"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:paddingStart="10dp"
+                    android:paddingTop="0dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:theme="@style/customEditText"
+                    android:editable="false"
+
+                    />
+            </com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:id="@+id/wallet_update_color_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+
+                android:fontFamily="@font/titillium_web_regular"
+                android:text="Color"
+                android:textColor="#939BAC"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                />
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="0dp"
+                >
+                <ImageView
+                    android:id="@+id/wallet_update_color_box"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/backgroud1"
+                    />
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/wallet_update_save"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#DAE6FA"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+
+            android:text="Save"
+            android:textSize="20sp"
+            android:textColor="?android:colorPrimary"
+            android:fontFamily="@font/titillium_web_regular"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

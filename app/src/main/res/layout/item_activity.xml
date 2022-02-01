@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/activity_row_cardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginTop="8dp"
+    app:cardCornerRadius="2dp"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@color/formField"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                    android:id="@+id/activity_row_icon"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:src="@mipmap/ic_bill"
+                    />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toEndOf="@+id/activity_row_icon"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/activity_row_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/titillium_web_regular"
+
+                    android:maxWidth="150dp"
+                    android:text="pengembalian dana"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/activity_row_wallet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Bank"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/activity_row_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="assssssssssssssssssss"
+                android:visibility="gone"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toStartOf="@+id/activity_row_opti"
+
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/activity_row_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_condensed_bold"
+                    android:text="Rp. 100.000.000,00"
+                    android:textSize="16sp"
+                        />
+
+                <TextView
+                    android:id="@+id/activity_row_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="20 Des 2020"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <ImageButton
+                    android:id="@+id/activity_row_opti"
+                    android:layout_width="35dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="0dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/test_text"
+                    android:minWidth="48dp"
+                    android:src="@drawable/ic_round_unfold_more_24"
+
+                    tools:ignore="TouchTargetSizeCheck"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/activity_row_more_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            >
+            <TextView
+                android:id="@+id/activity_row_desc_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Desc:"
+                />
+
+            <TextView
+                android:id="@+id/activity_row_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/activity_row_desc_label"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="basddddddddddddddddddddddddddddddddddddddddd" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/activity_row_delete"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/activity_row_desc"
+                android:text="Delete"
+                android:textColor="#E91E21" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/activity_row_edit"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/activity_row_desc"
+
+                android:layout_toEndOf="@+id/activity_row_delete"
+                android:text="edit"
+                android:visibility="gone"
+                />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

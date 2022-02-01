@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Belajar/Android/Android_Studio/MyWallet-v2.0.5/app/src/main/res/drawable/tab.xml" value="0.24473684210526317" />
+        <entry key="..\:/Belajar/Android/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout-v23/activity_dashboard.xml" value="0.27447916666666666" />
+        <entry key="..\:/Belajar/Android/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_dashboard.xml" value="0.264" />
+        <entry key="..\:/Belajar/Android/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Belajar/Android/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_new.xml" value="0.264" />
+        <entry key="..\:/Belajar/Android/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_pie_chart.xml" value="0.259375" />
+        <entry key="..\:/Belajar/Android/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_show_more.xml" value="0.4" />
+        <entry key="..\:/Belajar/Android/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_test.xml" value="0.23114035087719298" />
+        <entry key="..\:/Belajar/Android/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_wallet.xml" value="0.23114035087719298" />
+        <entry key="..\:/Belajar/Android/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_wallet_update.xml" value="0.4" />
+        <entry key="..\:/Belajar/Android/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/item_activity.xml" value="0.23114035087719298" />
+        <entry key="..\:/Belajar/Android/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/splash_screen_activity.xml" value="0.4" />
+        <entry key="..\:/Belajar/Android/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/test.xml" value="0.23114035087719298" />
+        <entry key="..\:/Belajar/AndroidStudio/MyWallet-v2.0.5/app/src/main/res/layout/activity_main.xml" value="0.20742753623188406" />
+        <entry key="..\:/Belajar/AndroidStudio/MyWallet-v2.0.5/app/src/main/res/layout/activity_new.xml" value="0.275" />
+        <entry key="..\:/Belajar/AndroidStudio/MyWallet-v2.0.5/app/src/main/res/layout/activity_pie_chart.xml" value="0.264" />
+        <entry key="..\:/Belajar/AndroidStudio/MyWallet-v2.0.5/app/src/main/res/layout/activity_test.xml" value="0.4" />
+        <entry key="..\:/Belajar/AndroidStudio/MyWallet-v2.0.5/app/src/main/res/layout/activity_wallet.xml" value="0.2609375" />
+        <entry key="..\:/Belajar/AndroidStudio/MyWallet-v2.0.5/app/src/main/res/layout/bottom_sheet_category_list.xml" value="0.27395833333333336" />
+        <entry key="..\:/Belajar/AndroidStudio/MyWallet-v2.0.5/app/src/main/res/layout/bottom_sheet_recycle_list.xml" value="0.2" />
+        <entry key="..\:/Belajar/AndroidStudio/MyWallet-v2.0.5/app/src/main/res/layout/bottom_sheet_wallet_list.xml" value="0.275" />
+        <entry key="..\:/Belajar/AndroidStudio/MyWallet-v2.0.5/app/src/main/res/layout/item_activity.xml" value="0.536" />
+        <entry key="..\:/Belajar/AndroidStudio/MyWallet-v2.0.5/app/src/main/res/layout/item_category.xml" value="0.275" />
+        <entry key="..\:/Belajar/AndroidStudio/MyWallet-v2.0.5/app/src/main/res/layout/splash_screen_activity.xml" value="0.176" />
+        <entry key="..\:/Belajar/AndroidStudio/MyWallet-v2.0.5/app/src/main/res/layout/test.xml" value="0.275" />
+        <entry key="..\:/Belajar/AndroidStudio/MyWallet-v2.0.5/app/src/main/res/layout/test2.xml" value="0.27395833333333336" />
+        <entry key="..\:/Belajar/AndroidStudio/MyWallet-v2.0.5/app/src/main/res/layout/test3.xml" value="0.4" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/drawable-night-xxxhdpi/ic_round_unfold_more_24.xml" value="0.24473684210526317" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/drawable-night/selector_box_stroke_color.xml" value="0.24385964912280703" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/drawable-night/tab.xml" value="0.24385964912280703" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/drawable-night/tab_selected.xml" value="0.24473684210526317" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/drawable-notnight-xxxhdpi/ic_round_unfold_more_24.xml" value="0.24473684210526317" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/drawable-notnight/selector_box_stroke_color.xml" value="0.24473684210526317" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/drawable/circle_background.xml" value="0.24155844155844156" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/drawable/ic_baseline_date_range_24_black.xml" value="0.24473684210526317" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/drawable/ic_round_unfold_more_24.xml" value="0.24473684210526317" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/drawable/selector_box_stroke_color.xml" value="0.14444444444444443" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/drawable/tab.xml" value="0.24473684210526317" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/drawable/tab_selected.xml" value="0.24473684210526317" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_account_setting.xml" value="0.23114035087719298" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_dashboard.xml" value="0.2" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_new.xml" value="0.2" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_pie_chart.xml" value="0.264" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_show_more.xml" value="0.264" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_sign_in.xml" value="0.264" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_sign_up.xml" value="0.23114035087719298" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_test.xml" value="0.264" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_wallet.xml" value="0.264" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/activity_wallet_update.xml" value="0.264" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/bottom_sheet_recycle_list.xml" value="0.23114035087719298" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/item_activity.xml" value="0.4" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/item_category.xml" value="0.23114035087719298" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/item_footer.xml" value="0.152" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/item_wallet_trf.xml" value="0.23114035087719298" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/menu_left_drawer.xml" value="0.21929824561403508" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/splash_screen_activity.xml" value="0.23114035087719298" />
+        <entry key="..\:/Belajar/Mobile/Android_Studio/MyWallet-v2.0.5/app/src/main/res/layout/xxx.xml" value="0.23026315789473684" />
+      </map>
+    </option>
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

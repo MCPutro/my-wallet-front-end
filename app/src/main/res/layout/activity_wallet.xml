@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    android:fitsSystemWindows="true"
+
+    android:background="@color/body"
+
+    tools:context=".Activity_Wallet"
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/wallet_toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="10dp"
+
+        >
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/wallet_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/toolbar"
+            app:title="Wallet List"
+            app:titleTextColor="@android:color/black"
+            app:menu="@menu/menu_save"
+            app:navigationIcon="@drawable/ic_round_arrow_back_24_black"
+
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lineWhite"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/wallet_list"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foreground="@android:color/transparent"
+        android:layout_marginTop="0dp"
+        />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

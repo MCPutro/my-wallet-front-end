@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ld_activityScreenTitles">
+        <item>Dashboard</item>
+        <item>Expense Chart</item>
+        <item>Wallet List</item>
+        <item>My Notes</item>
+        <item>Setting</item>
+        <item/>
+        <item>Sign Out</item>
+    </string-array>
+
+    <array name="ld_activityScreenIcons">
+        <item>@drawable/ic_navi_dashboard_24</item>
+        <item>@drawable/ic_navi_pie_chart_24</item>
+        <item>@drawable/ic_navi_wallet_24</item>
+        <item>@drawable/ic_navi_sticky_note_2_24</item>
+        <item>@drawable/ic_navi_settings_24</item>
+        <item>0</item>
+        <item>@drawable/ic_navi_sign_out_24</item>
+    </array>
+</resources>

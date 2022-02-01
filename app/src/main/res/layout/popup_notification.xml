@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/popup_notif_layout"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="30dp"
+    android:background="@color/white"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    android:layout_gravity="center"
+    >
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:id="@+id/popup_notif_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_check_circle_24_green"
+            />
+        <TextView
+            android:id="@+id/popup_notif_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            android:text="SUCCESS !"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="?android:colorPrimary"
+            />
+        <TextView
+            android:id="@+id/popup_notif_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:maxWidth="250dp"
+
+            android:layout_margin="20dp"
+
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="@string/test_text"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/popup_notif_text_btn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:text="ok"
+
+
+            />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
