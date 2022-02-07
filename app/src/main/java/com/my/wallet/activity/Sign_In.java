@@ -1,25 +1,12 @@
-package com.my.wallet;
+package com.my.wallet.activity;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
-import android.app.Dialog;
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.media.Image;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewTreeObserver;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -27,15 +14,17 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.material.button.MaterialButton;
+import com.my.wallet.BuildConfig;
+import com.my.wallet.R;
 import com.my.wallet.env.api;
 import com.my.wallet.env.dataStore;
 import com.my.wallet.env.lov;
 
+import com.my.wallet.popUpNotification;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
-public class Activity_Sign_In extends AppCompatActivity implements View.OnClickListener, Response.Listener<JSONObject>, Response.ErrorListener {
+public class Sign_In extends AppCompatActivity implements View.OnClickListener, Response.Listener<JSONObject>, Response.ErrorListener {
 
 
     /*** component ***/
@@ -63,7 +52,7 @@ public class Activity_Sign_In extends AppCompatActivity implements View.OnClickL
 
         this.initComponent();
         this.componentListener();
-        _version.setText("v."+BuildConfig.VERSION_NAME);
+        _version.setText("v."+ BuildConfig.VERSION_NAME);
     }
 
     private void initComponent() {
@@ -125,7 +114,7 @@ public class Activity_Sign_In extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         int id = view.getId();
         if (id == this._sign_in_2_sign_up.getId()) {
-            Intent i = new Intent(this, Activity_Sign_Up.class);
+            Intent i = new Intent(this, Sign_Up.class);
             startActivity(i);
 
         }
@@ -161,7 +150,7 @@ public class Activity_Sign_In extends AppCompatActivity implements View.OnClickL
 
                 dataStore.getInstance().setUserCredential(this._sign_in_email.getText().toString(), this._sign_in_password.getText().toString());
 
-                Intent i = new Intent(this, MainActivity.class);
+                Intent i = new Intent(this, Load_Data.class);
                 i.putExtra("urlAvatar", data.getString("urlAvatar"));
                 startActivity(i);
                 finish();

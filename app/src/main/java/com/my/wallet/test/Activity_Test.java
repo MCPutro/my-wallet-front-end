@@ -1,4 +1,4 @@
-package com.my.wallet;
+package com.my.wallet.test;
 
 
 import android.util.DisplayMetrics;
@@ -13,6 +13,7 @@ import android.widget.Button;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.my.wallet.R;
 import com.my.wallet.env.iconList;
 import com.my.wallet.test.*;
 

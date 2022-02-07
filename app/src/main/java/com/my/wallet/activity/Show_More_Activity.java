@@ -1,7 +1,6 @@
-package com.my.wallet;
+package com.my.wallet.activity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
@@ -13,12 +12,15 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.tabs.TabLayout;
+import com.my.wallet.adapter.Adapter_List_Activities;
+import com.my.wallet.R;
 import com.my.wallet.env.api;
 import com.my.wallet.env.dataStore;
 import com.my.wallet.env.lov;
 import com.my.wallet.model.Activities;
 import com.my.wallet.model.MyData;
 
+import com.my.wallet.popUpNotification;
 import com.whiteelephant.monthpicker.MonthPickerDialog;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -27,7 +29,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class Activity_show_more extends AppCompatActivity {
+public class Show_More_Activity extends AppCompatActivity {
     private MyData md;
     private Date startDate, endDate;
     private Adapter_List_Activities adapterList;

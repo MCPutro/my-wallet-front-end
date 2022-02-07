@@ -1,8 +1,7 @@
-package com.my.wallet;
+package com.my.wallet.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Build;
 import android.text.Html;
 import android.text.Spanned;
 import android.view.LayoutInflater;
@@ -11,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
 import androidx.core.text.HtmlCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.AuthFailureError;
@@ -20,12 +18,16 @@ import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.my.wallet.R;
+import com.my.wallet.activity.Dashboard;
+import com.my.wallet.activity.Show_More_Activity;
 import com.my.wallet.env.api;
 import com.my.wallet.env.dataStore;
 import com.my.wallet.env.iconList;
 import com.my.wallet.env.lov;
 import com.my.wallet.model.Activities;
 import com.my.wallet.model.MyData;
+import com.my.wallet.popUpNotification;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
@@ -61,17 +63,17 @@ public class Adapter_List_Activities extends RecyclerView.Adapter<RecyclerView.V
         if (this.temp_activity_list.size() > 0) {
             this.keys = new ArrayList<>(this.temp_activity_list.keySet());
             if (this.source.equalsIgnoreCase("dashboard")) {
-                ((Activity_Dashboard)context).setTextComponent(this.md.getListWallet(), this.temp_activity_list);
-                ((Activity_Dashboard)context).showNotifNoData(false);
+                ((Dashboard)context).setTextComponent(this.md.getListWallet(), this.temp_activity_list);
+                ((Dashboard)context).showNotifNoData(false);
             } else {
-                ((Activity_show_more)context).showNotifNoData(false);;
+                ((Show_More_Activity)context).showNotifNoData(false);;
             }
         }else{
             this.keys = new ArrayList<>();
             if (this.source.equalsIgnoreCase("dashboard")) {
-                ((Activity_Dashboard)context).showNotifNoData(true);
+                ((Dashboard)context).showNotifNoData(true);
             } else {
-                ((Activity_show_more)context).showNotifNoData(true);
+                ((Show_More_Activity)context).showNotifNoData(true);
             }
         }
 
@@ -111,7 +113,7 @@ public class Adapter_List_Activities extends RecyclerView.Adapter<RecyclerView.V
             if (holder instanceof FooterViewHolder) {
                 FooterViewHolder footerHolder = (FooterViewHolder) holder;
                 footerHolder.footerText.setOnClickListener(v -> {
-                    ((Activity_Dashboard)context).showMoreActivity();
+                    ((Dashboard)context).showMoreActivity();
                 });
             }
         } else {
@@ -240,11 +242,11 @@ public class Adapter_List_Activities extends RecyclerView.Adapter<RecyclerView.V
                                 dataStore.getInstance().saveData(null, null, null, null, md);
 
                                 if (this.source.equalsIgnoreCase("dashboard")) {
-                                    ((Activity_Dashboard) context).setMd(this.md);
-                                    ((Activity_Dashboard) context).setTextComponent(this.md.getListWallet(), this.temp_activity_list);
-                                    ((Activity_Dashboard) context).showRecentActivity();
+                                    ((Dashboard) context).setMd(this.md);
+                                    ((Dashboard) context).setTextComponent(this.md.getListWallet(), this.temp_activity_list);
+                                    ((Dashboard) context).showRecentActivity();
                                 }else{
-                                    ((Activity_show_more) context).setMd(this.md);
+                                    ((Show_More_Activity) context).setMd(this.md);
                                     this.temp_activity_list.remove(keys.get(position));
                                     this.keys.remove(position);
                                     notifyItemRemoved(position);
@@ -314,11 +316,11 @@ public class Adapter_List_Activities extends RecyclerView.Adapter<RecyclerView.V
                                 dataStore.getInstance().saveData(null, null, null, null, md);
 
                                 if (this.source.equalsIgnoreCase("dashboard")) {
-                                    ((Activity_Dashboard) context).setMd(this.md);
-                                    ((Activity_Dashboard) context).setTextComponent(this.md.getListWallet(), this.temp_activity_list);
-                                    ((Activity_Dashboard) context).showRecentActivity();
+                                    ((Dashboard) context).setMd(this.md);
+                                    ((Dashboard) context).setTextComponent(this.md.getListWallet(), this.temp_activity_list);
+                                    ((Dashboard) context).showRecentActivity();
                                 }else{
-                                    ((Activity_show_more) context).setMd(this.md);
+                                    ((Show_More_Activity) context).setMd(this.md);
                                     this.temp_activity_list.remove(data.getString("id"));
                                     this.keys.remove(position);
                                     notifyItemRemoved(position);

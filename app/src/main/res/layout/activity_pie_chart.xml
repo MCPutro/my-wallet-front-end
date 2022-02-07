@@ -10,7 +10,7 @@
 
     android:fitsSystemWindows="true"
 
-    tools:context=".Activity_Pie_Chart"
+    tools:context=".activity.Pie_Chart"
     >
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/activity_pie_chart_toolbar_layout"

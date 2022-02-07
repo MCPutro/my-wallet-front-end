@@ -1,6 +1,5 @@
-package com.my.wallet;
+package com.my.wallet.activity;
 
-import android.os.Build;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,19 +8,19 @@ import android.os.Handler;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
 
+import com.my.wallet.R;
 import com.my.wallet.env.api;
 import com.my.wallet.env.dataStore;
 
-public class splash_screen extends AppCompatActivity {
+public class Splash_Screen extends AppCompatActivity {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.splash_screen_activity);
+        setContentView(R.layout.activity_splash_screen);
 
         Window w = getWindow();
 
@@ -38,13 +37,13 @@ public class splash_screen extends AppCompatActivity {
 
         if (ds.getData().getUID() == null && ds.getData().getRefreshToken() == null) {
             new Handler().postDelayed(() -> {
-                Intent i = new Intent(this, Activity_Sign_In.class);
+                Intent i = new Intent(this, Sign_In.class);
                 startActivity(i);
                 finish();
             },2000);
         }else{
             new Handler().postDelayed(() -> {
-                Intent i = new Intent(this, MainActivity.class);
+                Intent i = new Intent(this, Load_Data.class);
                 //i.putExtra("isNewUser", false);
                 startActivity(i);
                 finish();

@@ -1,4 +1,4 @@
-package com.my.wallet;
+package com.my.wallet.activity;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -24,14 +23,13 @@ import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.maltaisn.calcdialog.CalcDialog;
+import com.my.wallet.R;
 import com.my.wallet.env.api;
 import com.my.wallet.env.dataStore;
 import com.my.wallet.env.iconList;
@@ -39,6 +37,7 @@ import com.my.wallet.env.lov;
 import com.my.wallet.model.MyData;
 import com.my.wallet.model.Wallet;
 
+import com.my.wallet.popUpNotification;
 import org.json.JSONObject;
 
 import java.math.BigDecimal;
@@ -48,7 +47,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-public class Activity_Wallet_Update extends AppCompatActivity implements View.OnClickListener, CalcDialog.CalcDialogCallback{
+public class Wallet_Update extends AppCompatActivity implements View.OnClickListener, CalcDialog.CalcDialogCallback{
     private MyData md;
 
     private String walletId = null;

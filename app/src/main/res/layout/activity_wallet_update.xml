@@ -10,7 +10,7 @@
 
     android:fitsSystemWindows="true"
 
-    tools:context=".Activity_Wallet_Update"
+    tools:context=".activity.Wallet_Update"
     >
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/wallet_update_toolbar_layout"

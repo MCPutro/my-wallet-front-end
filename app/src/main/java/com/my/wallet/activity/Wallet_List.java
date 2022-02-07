@@ -1,4 +1,4 @@
-package com.my.wallet;
+package com.my.wallet.activity;
 
 import android.text.Spanned;
 import androidx.annotation.NonNull;
@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -25,17 +24,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.my.wallet.R;
 import com.my.wallet.env.api;
 import com.my.wallet.env.dataStore;
 import com.my.wallet.env.iconList;
@@ -45,14 +41,11 @@ import com.my.wallet.model.Wallet;
 
 import org.json.JSONObject;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Locale;
 import java.util.Map;
 
-public class Activity_Wallet extends AppCompatActivity{
+public class Wallet_List extends AppCompatActivity{
     private MyData md;
 
     //**component**//
@@ -218,7 +211,7 @@ public class Activity_Wallet extends AppCompatActivity{
                 public boolean onMenuItemClick(MenuItem item) {
                     if (item.getItemId() == R.id.edit_item) {
                         //Toast.makeText(context, "update 1", Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(context, Activity_Wallet_Update.class);
+                        Intent i = new Intent(context, Wallet_Update.class);
                         i.putExtra("walletId", keys.get(holder.getAdapterPosition()));
                         i.putExtra("md", md);
                         startActivityForResult(i, NAV_WALLET_UPDATE);

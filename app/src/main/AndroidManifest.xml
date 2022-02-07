@@ -16,35 +16,35 @@
             android:theme="@style/Theme.MyWallet"
             tools:replace="android:icon">
         <activity
-                android:name=".Activity_Pie_Chart"
+                android:name=".activity.Pie_Chart"
                 android:exported="true"/>
         <activity
-                android:name=".Activity_show_more"
+                android:name=".activity.Show_More_Activity"
                 android:exported="true"/>
         <activity
-                android:name=".Activity_Account_Setting"
+                android:name=".activity.Account_Setting"
                 android:exported="true"/>
         <activity
-                android:name=".Activity_Test"
+                android:name=".test.Activity_Test"
                 android:exported="true">
         </activity>
         <activity
-                android:name=".Activity_New"
+                android:name=".activity.Activity_New"
                 android:exported="true"/>
         <activity
-                android:name=".Activity_Wallet_Update"
+                android:name=".activity.Wallet_Update"
                 android:exported="true"/>
         <activity
-                android:name=".Activity_Wallet"
+                android:name=".activity.Wallet_List"
                 android:exported="true"/>
         <activity
-                android:name=".Activity_Dashboard"
+                android:name=".activity.Dashboard"
                 android:exported="true"/>
         <activity
-                android:name=".Activity_Sign_Up"
+                android:name=".activity.Sign_Up"
                 android:exported="true"
                 />
-        <activity android:name=".splash_screen"
+        <activity android:name=".activity.Splash_Screen"
                   android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -52,11 +52,11 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".Activity_Sign_In"
+                android:name=".activity.Sign_In"
                 android:exported="true"
                 />
         <activity
-                android:name=".MainActivity"
+                android:name=".activity.Load_Data"
                 android:exported="true"
                 />
     </application>

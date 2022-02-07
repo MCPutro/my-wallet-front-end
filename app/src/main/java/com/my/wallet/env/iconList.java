@@ -3,12 +3,14 @@ package com.my.wallet.env;
 import androidx.annotation.NonNull;
 
 import com.my.wallet.R;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
 public class iconList {
 
 
+    @NotNull
     public static Map<String, Integer> wallet_type(){
         Map<String, Integer> tmp = new HashMap<>();
         tmp.put("Bank Account", R.mipmap.icon_bank);
@@ -42,6 +44,7 @@ public class iconList {
         return R.mipmap.ic_transfer;
     }
 
+    @NotNull
     public static Map<String, category> expense_category(){
         Map<String, category> test = new LinkedHashMap<>();//HashMap<>();
         test.put("House", new category(R.mipmap.ic_house,
@@ -108,6 +111,7 @@ public class iconList {
 
     }
 
+    @NotNull
     public static ArrayList<String> list_expense_category(){
         ArrayList<String> tmp = new ArrayList<>();
         for (Map.Entry<String, category> entry : expense_category().entrySet()) {

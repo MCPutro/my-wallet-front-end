@@ -1,12 +1,10 @@
-package com.my.wallet;
+package com.my.wallet.activity;
 
 import android.os.Build;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
@@ -15,13 +13,10 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Shader;
 import android.graphics.drawable.ColorDrawable;
-import android.media.Image;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -34,9 +29,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.JsonRequest;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.card.MaterialCardView;
+import com.my.wallet.R;
 import com.my.wallet.env.api;
 import com.my.wallet.env.dataStore;
 import com.my.wallet.env.lov;
@@ -50,7 +44,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-public class Activity_Account_Setting extends AppCompatActivity implements View.OnClickListener, Response.Listener<JSONObject>, Response.ErrorListener {
+public class Account_Setting extends AppCompatActivity implements View.OnClickListener, Response.Listener<JSONObject>, Response.ErrorListener {
 
     private MyData md;
     private String regexEmail;
@@ -77,7 +71,7 @@ public class Activity_Account_Setting extends AppCompatActivity implements View.
         //super.onBackPressed();
 
         finish();
-        Intent i = new Intent(this, Activity_Dashboard.class);
+        Intent i = new Intent(this, Dashboard.class);
         i.putExtra("md", md);
         startActivity(i);
     }
@@ -190,7 +184,7 @@ public class Activity_Account_Setting extends AppCompatActivity implements View.
     private void signOut(){
         dataStore.getInstance().clear();
         finish();
-        Intent i = new Intent(this, Activity_Sign_In.class);
+        Intent i = new Intent(this, Sign_In.class);
         startActivity(i);
     }
 

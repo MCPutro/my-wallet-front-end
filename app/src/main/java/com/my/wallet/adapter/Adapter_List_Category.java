@@ -1,4 +1,4 @@
-package com.my.wallet;
+package com.my.wallet.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,6 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.my.wallet.R;
+import com.my.wallet.activity.Activity_New;
 import com.my.wallet.env.category;
 import com.my.wallet.env.iconList;
 import org.jetbrains.annotations.NotNull;

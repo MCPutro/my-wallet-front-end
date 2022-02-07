@@ -11,7 +11,7 @@
 
     android:background="@color/formBody"
 
-    tools:context=".Activity_Sign_Up"
+    tools:context=".activity.Sign_Up"
     >
 
     <ImageButton

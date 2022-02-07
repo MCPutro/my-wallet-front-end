@@ -1,4 +1,4 @@
-package com.my.wallet;
+package com.my.wallet.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -26,6 +26,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.my.wallet.adapter.Adapter_List_Activities;
+import com.my.wallet.R;
 import com.my.wallet.env.dataStore;
 import com.my.wallet.env.lov;
 import com.my.wallet.menuNavi.DrawerAdapter;
@@ -47,7 +49,7 @@ import java.util.Date;
 import java.util.Map;
 
 
-public class Activity_Dashboard extends AppCompatActivity implements DrawerAdapter.OnItemSelectedListener {
+public class Dashboard extends AppCompatActivity implements DrawerAdapter.OnItemSelectedListener {
     private MyData md;
     private NumberFormat currencyFormat;
     private boolean doubleBackToExitPressedOnce = false;
@@ -169,7 +171,7 @@ public class Activity_Dashboard extends AppCompatActivity implements DrawerAdapt
         this._dashboard_new_activities.setOnClickListener(v -> {
             //finish();
             if (md.getListWallet().size() > 0) {
-                Intent i = new Intent(Activity_Dashboard.this, Activity_New.class);
+                Intent i = new Intent(Dashboard.this, Activity_New.class);
                 i.putExtra("md", md);
                 startActivityForResult(i, NAV_NEW_ACTIVITIES_CODE);
             }else{
@@ -325,19 +327,19 @@ public class Activity_Dashboard extends AppCompatActivity implements DrawerAdapt
         if (position == NAV_SIGN_OUT) {
             dataStore.getInstance().clear();
             finish();
-            Intent i = new Intent(this, Activity_Sign_In.class);
+            Intent i = new Intent(this, Sign_In.class);
             startActivity(i);
         }else if (position == NAV_WALLET_LIST) {
-            Intent i = new Intent(this, Activity_Wallet.class);
+            Intent i = new Intent(this, Wallet_List.class);
             i.putExtra("md", this.md);
             startActivityForResult(i, NAV_WALLET_LIST_CODE);
         }else if (position == NAV_SETTING) {
             finish();
-            Intent i = new Intent(this, Activity_Account_Setting.class);
+            Intent i = new Intent(this, Account_Setting.class);
             i.putExtra("md", this.md);
             startActivity(i);
         }else if (position == NAV_EXPENSE_CHART) {
-            Intent i = new Intent(this, Activity_Pie_Chart.class);
+            Intent i = new Intent(this, Pie_Chart.class);
             i.putExtra("md", this.md);
             i.putExtra("startDate", this.startDate.getTime());
             i.putExtra("endDate", this.endDate.getTime());
@@ -373,7 +375,7 @@ public class Activity_Dashboard extends AppCompatActivity implements DrawerAdapt
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            Intent i = new Intent(Activity_Dashboard.this, Activity_Wallet_Update.class);
+                            Intent i = new Intent(Dashboard.this, Wallet_Update.class);
                             i.putExtra("md", md);
                             startActivityForResult(i, NAV_WALLET_UPDATE_CODE);
                         }
@@ -399,7 +401,7 @@ public class Activity_Dashboard extends AppCompatActivity implements DrawerAdapt
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Intent i = new Intent(Activity_Dashboard.this, Activity_Wallet.class);
+                    Intent i = new Intent(Dashboard.this, Wallet_List.class);
                     i.putExtra("md", md);
                     startActivityForResult(i, NAV_WALLET_LIST_CODE);
                 }
@@ -427,7 +429,7 @@ public class Activity_Dashboard extends AppCompatActivity implements DrawerAdapt
                 .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent i = new Intent(Activity_Dashboard.this, Activity_Wallet_Update.class);
+                        Intent i = new Intent(Dashboard.this, Wallet_Update.class);
                         i.putExtra("md", md);
                         startActivityForResult(i, NAV_WALLET_UPDATE_CODE);
                     }
@@ -443,7 +445,7 @@ public class Activity_Dashboard extends AppCompatActivity implements DrawerAdapt
     }
 
     public void showMoreActivity(){
-        Intent i = new Intent(this, Activity_show_more.class);
+        Intent i = new Intent(this, Show_More_Activity.class);
         i.putExtra("md", this.md);
         startActivityForResult(i, NAV_ACTIVITIES_LIST_SHOW_MORE_CODE);
     }

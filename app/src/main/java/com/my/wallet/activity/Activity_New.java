@@ -1,11 +1,10 @@
-package com.my.wallet;
+package com.my.wallet.activity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,7 +12,6 @@ import android.view.*;
 import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.LinearLayoutCompat;
@@ -30,6 +28,8 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.maltaisn.calcdialog.CalcDialog;
+import com.my.wallet.adapter.Adapter_List_Category;
+import com.my.wallet.R;
 import com.my.wallet.env.api;
 import com.my.wallet.env.dataStore;
 import com.my.wallet.env.iconList;
@@ -37,6 +37,7 @@ import com.my.wallet.env.lov;
 import com.my.wallet.model.Activities;
 import com.my.wallet.model.MyData;
 import com.my.wallet.model.Wallet;
+import com.my.wallet.popUpNotification;
 import org.json.JSONObject;
 
 import java.math.BigDecimal;

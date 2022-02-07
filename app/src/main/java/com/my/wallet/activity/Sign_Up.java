@@ -1,21 +1,13 @@
-package com.my.wallet;
+package com.my.wallet.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -23,15 +15,17 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.material.button.MaterialButton;
+import com.my.wallet.R;
 import com.my.wallet.env.api;
 import com.my.wallet.env.dataStore;
 import com.my.wallet.env.lov;
 
+import com.my.wallet.popUpNotification;
 import org.json.JSONObject;
 
 import java.util.Objects;
 
-public class Activity_Sign_Up extends AppCompatActivity implements View.OnClickListener, Response.Listener<JSONObject>, Response.ErrorListener {
+public class Sign_Up extends AppCompatActivity implements View.OnClickListener, Response.Listener<JSONObject>, Response.ErrorListener {
 
     /*** component ***/
     private ImageButton _sign_up_back_btn;
@@ -173,7 +167,7 @@ public class Activity_Sign_Up extends AppCompatActivity implements View.OnClickL
 
                 popUpNotification.close();
 
-                Intent i = new Intent(Activity_Sign_Up.this, MainActivity.class);
+                Intent i = new Intent(Sign_Up.this, Load_Data.class);
                 i.putExtra("isNewUser", true);
                 i.putExtra("urlAvatar", data.getString("urlAvatar"));
                 startActivity(i);

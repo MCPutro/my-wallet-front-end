@@ -1,10 +1,8 @@
-package com.my.wallet;
+package com.my.wallet.activity;
 
-import android.os.StrictMode;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -24,6 +22,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
+import com.my.wallet.R;
 import com.my.wallet.env.api;
 import com.my.wallet.env.dataStore;
 import com.my.wallet.env.lov;
@@ -35,15 +34,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.nio.charset.StandardCharsets;
-import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
-public class MainActivity extends AppCompatActivity implements TextWatcher, Response.Listener<JSONObject>, Response.ErrorListener {
+public class Load_Data extends AppCompatActivity implements TextWatcher, Response.Listener<JSONObject>, Response.ErrorListener {
 
     private MyData md;
     private Boolean isNewUser;
@@ -78,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, Resp
         if (err != null) {//if (err.equalsIgnoreCase("expired") || err.equalsIgnoreCase("error")) {
             Toast.makeText(this, "Your refresh token has expired.\nPlease re-signin!", Toast.LENGTH_SHORT).show();
             //this.ds.clear();
-            Intent i = new Intent(this, Activity_Sign_In.class);
+            Intent i = new Intent(this, Sign_In.class);
             startActivity(i);
             finish();
         }else{
@@ -164,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, Resp
 
         this.ds.saveData(null, null, null, null, this.md);
         finish();
-        Intent i = new Intent(this, Activity_Dashboard.class);
+        Intent i = new Intent(this, Dashboard.class);
         i.putExtra("md", md);
         startActivity(i);
     }
@@ -198,7 +194,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, Resp
                         getRecentActivity(uid, Calendar.getInstance().get(Calendar.YEAR)+ "-" + ((month.length() == 1) ? ("0"+month) : month), token);
                     }catch (Throwable t){}
                 },
-                error -> Toast.makeText(MainActivity.this, "error3: "+error.getMessage(), Toast.LENGTH_LONG).show()
+                error -> Toast.makeText(Load_Data.this, "error3: "+error.getMessage(), Toast.LENGTH_LONG).show()
         ){
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
@@ -310,13 +306,13 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, Resp
 
             this.tv.setText("Load data ");
         } catch (Throwable t) {
-            Toast.makeText(MainActivity.this, "error 8 : "+t.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(Load_Data.this, "error 8 : "+t.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(MainActivity.this, "error 9 : "+error.getMessage(), Toast.LENGTH_LONG).show();
+        Toast.makeText(Load_Data.this, "error 9 : "+error.getMessage(), Toast.LENGTH_LONG).show();
     }
 
     @Override public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}

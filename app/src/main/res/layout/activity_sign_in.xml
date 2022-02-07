@@ -9,7 +9,7 @@
     android:background="@color/formBody"
 
     android:fitsSystemWindows="true"
-    tools:context=".Activity_Sign_In"
+    tools:context=".activity.Sign_In"
     >
     <LinearLayout
         android:id="@+id/sign_in_welcome"

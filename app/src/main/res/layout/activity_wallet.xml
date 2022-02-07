@@ -11,7 +11,7 @@
 
     android:background="@color/body"
 
-    tools:context=".Activity_Wallet"
+    tools:context=".activity.Wallet_List"
     >
 
     <com.google.android.material.appbar.AppBarLayout

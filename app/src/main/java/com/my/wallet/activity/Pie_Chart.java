@@ -1,13 +1,8 @@
-package com.my.wallet;
+package com.my.wallet.activity;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.graphics.Color;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
 import android.widget.*;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.core.util.Pair;
@@ -22,21 +17,20 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
+import com.my.wallet.R;
 import com.my.wallet.env.iconList;
 import com.my.wallet.env.lov;
+import com.my.wallet.groupingMapByKey;
 import com.my.wallet.model.Activities;
 import com.my.wallet.model.MyData;
 
 import java.util.*;
 
 
-public class Activity_Pie_Chart extends AppCompatActivity implements OnChartValueSelectedListener {
+public class Pie_Chart extends AppCompatActivity implements OnChartValueSelectedListener {
     private MyData md;
     private Date startDate;
     private Date endDate;
