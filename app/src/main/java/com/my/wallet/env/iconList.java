@@ -33,6 +33,7 @@ public class iconList {
         temp.put("Salary", R.mipmap.ic_salery);
         temp.put("Gift", R.mipmap.ic_hadiah);
         temp.put("Refunds", R.mipmap.ic_refund);
+        temp.put("Investment", R.mipmap.ic_inver);
         temp.put("Reward", R.mipmap.ic_reward);
         temp.put("Other", R.mipmap.ic_other_income);
         return temp;

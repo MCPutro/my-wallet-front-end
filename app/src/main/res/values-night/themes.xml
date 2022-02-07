@@ -31,13 +31,13 @@
     </style>
 s
     <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@drawable/test</item>
+        <item name="android:background">@drawable/bottom_sheet_background</item>
     </style>
 
     <!--    progress    -->
     <style name="Widget.App.CircularProgressIndicator" parent="Widget.MaterialComponents.CircularProgressIndicator">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.CircularProgressIndicator</item>
-        <item name="trackThickness">20dp</item>
+<!--        <item name="trackThickness">20dp</item>-->
     </style>
 
     <style name="ThemeOverlay.App.CircularProgressIndicator" parent="">
