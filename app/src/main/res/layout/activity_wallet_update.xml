@@ -17,18 +17,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        app:elevation="10dp"
+        android:elevation="0dp"
+        app:elevation="0dp"
         >
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/wallet_update_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/toolbar"
-            app:title="Wallet"
-            app:titleTextColor="@android:color/black"
+            app:title="New Wallet"
+            app:titleTextColor="@color/textColor2"
             app:menu="@menu/menu_save"
             app:navigationIcon="@drawable/ic_round_arrow_back_24_black"
-
+            android:theme="@style/ToolbarTheme"
             />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -37,6 +38,7 @@
         android:layout_height="1dp"
         android:background="@color/lineWhite"
         android:layout_below="@+id/wallet_update_toolbar_layout"
+        android:visibility="invisible"
 
         />
 
@@ -61,7 +63,7 @@
                 android:layout_marginTop="30dp"
                 android:fontFamily="@font/titillium_web_regular"
                 android:text="#Id"
-                android:textColor="@color/black"
+                android:textColor="@color/textColor2"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -97,7 +99,6 @@
                 android:layout_marginTop="5dp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="0dp"
-
                 app:cardBackgroundColor="@color/formField"
                 >
                 <RelativeLayout
@@ -115,7 +116,7 @@
                             android:gravity="center|start"
                             android:paddingStart="10dp"
                             android:paddingEnd="0dp"
-                            android:textColor="@color/black"
+                            android:textColor="@color/textColor2"
                             android:textSize="15sp"
                             />
 
@@ -167,9 +168,11 @@
                     android:paddingStart="10dp"
                     android:paddingTop="0dp"
                     android:paddingEnd="10dp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/textColor2"
                     android:textSize="15sp"
                     android:theme="@style/customEditText"
+                    android:hint="e.x: Bank X"
+
 
                     />
             </com.google.android.material.card.MaterialCardView>
@@ -211,10 +214,12 @@
                     android:paddingStart="10dp"
                     android:paddingTop="0dp"
                     android:paddingEnd="10dp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/textColor2"
                     android:textSize="15sp"
-                    android:theme="@style/customEditText"
                     android:editable="false"
+                    android:hint="@string/test_text"
+                    android:textColorHint="@color/transparent"
+                    android:theme="@style/customEditText"
 
                     />
             </com.google.android.material.card.MaterialCardView>

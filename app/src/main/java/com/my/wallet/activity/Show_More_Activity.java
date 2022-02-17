@@ -190,19 +190,7 @@ public class Show_More_Activity extends AppCompatActivity {
 
                     for (int i = 0; i < actList.length(); i++) {
                         JSONObject tmp = (JSONObject) actList.get(i);
-//                        a = new Activities(
-//                                tmp.getString("id"),
-//                                tmp.getString("walletId"),
-//                                tmp.getString("walletName"),
-//
-//                                tmp.getString("title"),
-//                                tmp.getString("category"),
-//
-//                                tmp.getDouble("nominal"),
-//                                tmp.getString("desc"),
-//                                lov.dateFormatter4.parse(tmp.getString("date")),
-//                                tmp.getBoolean("income"));
-                        Activities a = Activities.builder()
+                        Activities na = Activities.builder()
                                 .id(tmp.getString("id"))
                                 .walletId(tmp.getString("walletId"))
                                 .walletName(tmp.getString("walletName"))
@@ -211,10 +199,10 @@ public class Show_More_Activity extends AppCompatActivity {
                                 .descActivities(tmp.getString("desc"))
                                 .nominalActivities(tmp.getDouble("nominal"))
                                 .dateActivities(lov.dateFormatter4.parse(tmp.getString("date")))
-                                .income(tmp.getBoolean("income"))
+                                .type(lov.activityType.valueOf(tmp.getString("type")))//.income(tmp.getBoolean("income"))
                                 .build();
 
-                        this.md.getListActivities().put(a.getId(), a);
+                        this.md.getListActivities().put(na.getId(), na);
 
                         //Toast.makeText(this, a.toString(), Toast.LENGTH_SHORT).show();
                     }

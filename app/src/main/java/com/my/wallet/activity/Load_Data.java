@@ -134,8 +134,9 @@ public class Load_Data extends AppCompatActivity implements TextWatcher, Respons
     private void refreshToken(String refreshToken){
         try {
             String url = api.url+api.path_refreshToken;
-            JSONObject requestMessage = new JSONObject(); //new JSONObject("{\"refreshToken\": \""+refreshToken+"\"} ");
-            requestMessage.put("refreshToken", refreshToken);
+            JSONObject requestMessage = lov.refreshTokenRequest(refreshToken);
+//            new JSONObject(); //new JSONObject("{\"refreshToken\": \""+refreshToken+"\"} ");
+//            requestMessage.put("refreshToken", refreshToken);
 
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
                     url, requestMessage, this, this
@@ -235,7 +236,7 @@ public class Load_Data extends AppCompatActivity implements TextWatcher, Respons
                                         .descActivities(tmp.getString("desc"))
                                         .nominalActivities(tmp.getDouble("nominal"))
                                         .dateActivities(lov.dateFormatter4.parse(tmp.getString("date")))
-                                        .income(tmp.getBoolean("income"))
+                                        .type(lov.activityType.valueOf(tmp.getString("type")))//.income(tmp.getBoolean("income"))
                                         .build();
 
                                 //Toast.makeText(this, "tmp : "+a.toString(), Toast.LENGTH_SHORT).show();
@@ -244,6 +245,7 @@ public class Load_Data extends AppCompatActivity implements TextWatcher, Respons
                             toDashboard();
                         }else{
                             Toast.makeText(this, "resp 2", Toast.LENGTH_LONG).show();
+                            Toast.makeText(this, response+"", Toast.LENGTH_LONG).show();
                         }
                     }catch (Throwable t){
                         Toast.makeText(this, "resp "+t.getMessage(), Toast.LENGTH_LONG).show();

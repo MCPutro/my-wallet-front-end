@@ -18,7 +18,8 @@
         android:id="@+id/wallet_toolbar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:elevation="10dp"
+        android:elevation="0dp"
+        app:elevation="0dp"
 
         >
         <com.google.android.material.appbar.MaterialToolbar
@@ -27,10 +28,10 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/toolbar"
             app:title="Wallet List"
-            app:titleTextColor="@android:color/black"
+            app:titleTextColor="@color/textColor2"
             app:menu="@menu/menu_save"
             app:navigationIcon="@drawable/ic_round_arrow_back_24_black"
-
+            android:theme="@style/ToolbarTheme"
             />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -38,6 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/lineWhite"
+        android:visibility="gone"
         />
 
     <androidx.recyclerview.widget.RecyclerView

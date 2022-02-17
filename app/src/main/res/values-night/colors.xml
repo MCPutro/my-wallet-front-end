@@ -47,4 +47,8 @@
     <color name="colorTabSelected">#374264</color>
 
     <color name="textDiff">#67CECD</color>
+
+    <color name="textColor2">@color/white</color>
+
+    <color name="floatButton" >#61D1D5</color>
 </resources>

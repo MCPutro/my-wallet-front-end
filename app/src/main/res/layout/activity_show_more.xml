@@ -20,9 +20,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:title="Recent activity"
-                app:titleTextColor="@android:color/black"
+                app:titleTextColor="@color/textColor2"
                 android:background="@color/toolbar"
                 app:navigationIcon="@drawable/ic_round_arrow_back_24_black"
+                android:theme="@style/ToolbarTheme"
         />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -35,8 +36,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/tab"
-            app:tabTextColor="@android:color/black"
-            app:tabSelectedTextColor="@android:color/black"
+            app:tabTextColor="@color/textColor2"
+            app:tabSelectedTextColor="@color/textColor2"
             app:tabIndicator="@drawable/tab_selected"
             app:tabIndicatorColor="@color/colorTabSelected"
             app:tabIndicatorGravity="stretch"

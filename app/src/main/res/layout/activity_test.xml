@@ -6,15 +6,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FEFEFF"
+    android:background="@color/newActivityBody"
+    android:padding="20dp"
     tools:context=".test.Activity_Test">
 
-   <EditText
+   <com.google.android.material.textfield.TextInputLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:ems="10"
+           app:errorEnabled="true"
+           app:boxBackgroundColor="@color/formField"
+           app:boxStrokeColor="@drawable/selector_box_stroke_color"
+           app:boxStrokeWidth="2dp"
+           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+           app:hintEnabled="false"
+           >
 
-           android:hint="adsasda"
-           />
+      <com.google.android.material.textfield.TextInputEditText
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+
+              />
+
+   </com.google.android.material.textfield.TextInputLayout>
+
+   <com.google.android.material.textfield.TextInputLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           app:errorEnabled="true"
+           app:boxBackgroundColor="@color/formField"
+           app:boxStrokeColor="@drawable/selector_box_stroke_color"
+           app:boxStrokeWidth="2dp"
+           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+           app:hintEnabled="false"
+           >
+      <AutoCompleteTextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="none"
+              />
+   </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

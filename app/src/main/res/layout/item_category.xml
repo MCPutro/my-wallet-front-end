@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:text="Text Name"
-                android:textColor="@color/black"
+                android:textColor="@color/textColor2"
                 android:textSize="18sp"
                 android:layout_margin="10dp"
                 android:layout_gravity="center"

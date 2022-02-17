@@ -5,22 +5,28 @@
         <item name="colorControlNormal">#fff</item>
     </style>
 
+    <!-- toolbar font-->
+    <style name="ToolbarTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:fontFamily">@font/titillium_web_bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <!-- notif pop up material io -->
     <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
-        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorSurface">@color/statusBarColor</item>
         <item name="materialAlertDialogTitleTextStyle">@style/TitleTextStyle</item>
         <item name="materialAlertDialogBodyTextStyle">@style/BodyTextStyle</item>
         <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
         <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
     </style>
     <style name="TitleTextStyle" parent="MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked">
-        <item name="android:textColor">?android:colorPrimary</item>
+        <item name="android:textColor">@color/showMoreBtn</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">@font/titillium_web_regular</item>
     </style>
     <style name="BodyTextStyle" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
-        <item name="android:textColor">#212121</item>
+        <item name="android:textColor">@color/textColor2</item>
         <item name="android:textSize">14sp</item>
     </style>
     <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">

@@ -86,7 +86,7 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
 
     /**layout type**/
     private ScrollView _activity_new_layout_inex;
-    private LinearLayoutCompat _activity_new_layout_trf;
+    private ScrollView _activity_new_layout_trf;
 
     /**transfer layout**/
     private MaterialCardView _trf_from;
@@ -95,7 +95,7 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
     private TextView _trf_from_name, _trf_from_id, _trf_from_nominal;
     private ImageView _trf_to_icon;
     private TextView _trf_to_name, _trf_to_id, _trf_to_nominal;
-    private AppCompatEditText _trf_nominal, _trf_nominal_fee;
+    private AppCompatEditText _trf_nominal, _trf_nominal_fee, _trf_date;
 
     public void setCategory(String category, String subCategory) {
         this.category = category;
@@ -159,6 +159,7 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
         this._trf_to_nominal = findViewById(R.id.trf_to_nominal);
         this._trf_nominal = findViewById(R.id.trf_nominal);
         this._trf_nominal_fee = findViewById(R.id.trf_nominal_fee);
+        this._trf_date = findViewById(R.id.trf_date);
 
         /**variable**/
         this.calcDialog = new CalcDialog();
@@ -184,7 +185,7 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
                                         .nominalActivities(Double.parseDouble(_create_history_nominal.getText().toString()))
                                         .descActivities(_create_history_desc.getText().toString())
                                         .dateActivities(lov.dateFormatter2.parse(_create_history_date.getText().toString()))
-                                        .income((type == lov.activityType.INCOME))
+                                        .type(type)//.income((type == lov.activityType.INCOME))
                                         .build(),
                                 dataStore.getInstance().getData().getToken());
                     }
@@ -286,6 +287,12 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
             trf = lov.trf.DESTINATION;
             showBottomSheetDialog("wallet");
         });
+        _trf_date.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) showDateDialog();
+        });
+        _trf_nominal.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) showCalculator();
+        });
     }
 
     private void showBottomSheetDialog(String type){
@@ -326,49 +333,53 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
     }
 
     private String transferValidation(){
-        String status = "";
+        ArrayList<String> status = new ArrayList<>();
+        //String status = "";
         int i = 0;
 
 
         if (this._trf_from_id.getText().equals(this._trf_to_id.getText()) && this._trf_from_id.getText().length() > 0 && this._trf_to_id.getText().length() > 0) {
-            status += "source and destination can't be the same, ";
-        }
-        else i++;
+            status.add("source and destination can't be the same");
+        } else i++;
 
         if (this._trf_from_id.getText().length() == 0) {
-            status += "source wallet not selected, ";
-        }else i++;
+            status.add("source wallet not selected");
+        } else i++;
 
         if (this._trf_to_id.getText().length() == 0) {
-            status += "destination wallet not selected, ";
-        }else i++;
+            status.add("destination wallet not selected");
+        } else i++;
 
         if (this._trf_nominal.getText().length() == 0 || Double.parseDouble(this._trf_nominal.getText().toString()) == 0.0) {
-            status += "amount can't be empty/zero";
+            status.add("amount can't be empty/zero");
+        } else i++;
+
+        if (this._trf_date.getText().length() == 0) {
+            status.add("date can't be empty");
         } else i++;
 
 
-        if (i == 4) {
+        if (i == 5) {
             return null;
-        }
-        else{
-            return status;
+        } else {
+            return status.toString().replace("[", "").replace("]","");
         }
     }
-
 
     private void transferBalance(){
         try {
             popUpNotification.show(this, lov.popUpType.LOADING, null);
 
             String fee = ((_trf_nominal_fee.getText().toString().length() == 0) ? "0" : _trf_nominal_fee.getText().toString());
-            JSONObject message = new JSONObject("{" +
-                    "\"id\" : \""                   + UUID.randomUUID().toString()          + "\"," +
-                    "\"walletIdSource\" : \""       + _trf_from_id.getText().toString()     + "\"," +
-                    "\"walletIdDestination\" : \""  + _trf_to_id.getText().toString()       + "\"," +
-                    "\"nominal\" : "                + _trf_nominal.getText().toString()     + "," +
-                    "\"fee\" : "                    + fee +
-                    "}");
+            JSONObject message = lov.transferRequest(
+                    _trf_from_id.getText().toString(),
+                    _trf_to_id.getText().toString(),
+                    _trf_nominal.getText().toString(),
+                    fee,
+                    lov.dateFormatter2.parse(this._trf_date.getText().toString())
+            );
+
+            Toast.makeText(this, message+"", Toast.LENGTH_LONG).show();
 
             String url = api.url + api.path_walletTransfer;
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
@@ -395,7 +406,7 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
                                         .descActivities(newActivity.getString("desc"))
                                         .nominalActivities(newActivity.getDouble("nominal"))
                                         .dateActivities(lov.dateFormatter4.parse(newActivity.getString("date")))
-                                        .income(newActivity.getBoolean("income"))
+                                        .type(lov.activityType.valueOf(newActivity.getString("type")))//.income(newActivity.getBoolean("income"))
                                         .build();
 
                                 md.getListActivities().put(a.getId(), a);
@@ -503,18 +514,13 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
 
     private void showDateDialog() {
         Calendar newCalendar = Calendar.getInstance();
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                Calendar newDate = Calendar.getInstance();
-                newDate.set(year, month, dayOfMonth);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, (view, year, month, dayOfMonth) -> {
+            Calendar newDate = Calendar.getInstance();
+            newDate.set(year, month, dayOfMonth);
 
-                tempDate = lov.dateFormatter1.format(newDate.getTime());//_new_activities_date.setText(dateFormatter.format(newDate.getTime()));
+            tempDate = lov.dateFormatter1.format(newDate.getTime());//_new_activities_date.setText(dateFormatter.format(newDate.getTime()));
 
-
-                showTimeDialog();
-            }
-
+            showTimeDialog();
         },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
     }
@@ -523,19 +529,20 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
         Calendar mcurrentTime = Calendar.getInstance();
         int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
         int minute = mcurrentTime.get(Calendar.MINUTE);
-        TimePickerDialog mTimePicker = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                String menit = "";
-                String jam = "";
-                if (selectedMinute < 10) { menit = "0"+selectedMinute; }else{ menit = ""+selectedMinute; }
-                if (selectedHour < 10) {jam = "0"+selectedHour;}else{jam = ""+selectedHour;}
+        TimePickerDialog mTimePicker = new TimePickerDialog(this, (timePicker, selectedHour, selectedMinute) -> {
+            String menit = "";
+            String jam = "";
+            if (selectedMinute < 10) { menit = "0"+selectedMinute; }else{ menit = ""+selectedMinute; }
+            if (selectedHour < 10) {jam = "0"+selectedHour;}else{jam = ""+selectedHour;}
 
-                //tempDate2 += "T"+jam + ":" + menit+":00"+ TimeZone.getDefault().getDisplayName(false, TimeZone.SHORT_GMT);
-
+            //tempDate2 += "T"+jam + ":" + menit+":00"+ TimeZone.getDefault().getDisplayName(false, TimeZone.SHORT_GMT);
+            if (type != lov.activityType.TRANSFER) {
                 _create_history_date.setText(tempDate + " " + jam + ":" + menit);
-                //_new_activities_date_layout.setStartIconDrawable(R.drawable.ic_baseline_date_range_24_black);
+            }else{
+                _trf_date.setText(tempDate + " " + jam + ":" + menit);
             }
+
+            //_new_activities_date_layout.setStartIconDrawable(R.drawable.ic_baseline_date_range_24_black);
         }, hour, minute, true);//Yes 24 hour time
         //mTimePicker.setTitle("Select Time");
         mTimePicker.show();
@@ -550,7 +557,12 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
     @Override
     public void onValueEntered(int requestCode, @Nullable BigDecimal value) {
         this.value_nominal = value;
-        this._create_history_nominal.setText(this.value_nominal.toPlainString());
+        if (type != lov.activityType.TRANSFER) {
+            this._create_history_nominal.setText(this.value_nominal.toPlainString());
+        }else{
+            this._trf_nominal.setText(this.value_nominal.toPlainString());
+        }
+
     }
 
     @NonNull
@@ -600,7 +612,7 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
             popUpNotification.show(this, lov.popUpType.LOADING, null);
 
             //Toast.makeText(Activity_New.this, newActivity.toString(), Toast.LENGTH_LONG).show();
-            JSONObject requestMessage = new JSONObject(newActivity.toString());
+            JSONObject requestMessage = lov.newActivityRequest(newActivity); //new JSONObject(newActivity.toString());
 
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
                     api.url + api.path_activity,

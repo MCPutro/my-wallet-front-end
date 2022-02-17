@@ -16,7 +16,8 @@
         android:id="@+id/activity_pie_chart_toolbar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:elevation="10dp"
+        android:elevation="0dp"
+        app:elevation="0dp"
         >
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/activity_pie_chart_toolbar"
@@ -24,8 +25,9 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/toolbar"
             app:title="Expense Chart"
-            app:titleTextColor="@android:color/black"
+            app:titleTextColor="@color/textColor2"
             app:navigationIcon="@drawable/ic_round_arrow_back_24_black"
+            android:theme="@style/ToolbarTheme"
         />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -33,6 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/lineWhite"
+            android:visibility="gone"
             />
 
     <com.google.android.material.card.MaterialCardView
@@ -54,12 +57,14 @@
             app:boxBackgroundColor="@color/formField"
             app:endIconMode="custom"
             app:endIconDrawable="@drawable/ic_baseline_date_range_24_black"
+            app:hintTextColor="@color/showMoreBtn"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/activity_pie_chart_period"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:editable="false"
+                android:text="asd"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 

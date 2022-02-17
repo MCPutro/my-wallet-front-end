@@ -80,7 +80,7 @@ public class Pie_Chart extends AppCompatActivity implements OnChartValueSelected
 //        getWindow().setStatusBarColor(Color.TRANSPARENT);
 //        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
-        /** **/
+        // **/
         this.calendar = Calendar.getInstance();
 
         MaterialToolbar _activity_pie_chart_toolbar = findViewById(R.id.activity_pie_chart_toolbar);
@@ -163,12 +163,11 @@ public class Pie_Chart extends AppCompatActivity implements OnChartValueSelected
         groupingMapByKey<String, Double> tg = new groupingMapByKey<>();
 
         for (Map.Entry<String, Activities> act : this.md.getListActivities().entrySet()) {
-            if (
-                    (act.getValue().getDateActivities().after(startDate) && act.getValue().getDateActivities().before(endDate))
-                            &&
-                            !act.getValue().isIncome()
-                            &&
-                            !"Transfer".equalsIgnoreCase(act.getValue().getTitleActivities())
+            if ((act.getValue().getDateActivities().after(startDate) && act.getValue().getDateActivities().before(endDate))
+                    &&
+                    act.getValue().getType() == lov.activityType.EXPENSE //!act.getValue().isIncome()
+//                    &&
+//                    !"Transfer".equalsIgnoreCase(act.getValue().getTitleActivities())
             ){
                 if (category2show.isEmpty()) {
                     tg.add(act.getValue().getTitleActivities(), act.getValue().getNominalActivities());

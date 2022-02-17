@@ -22,6 +22,7 @@
         android:background="@android:color/transparent"
         android:src="@drawable/ic_round_arrow_back_24_black"
         tools:ignore="SpeakableTextPresentCheck" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +37,8 @@
             android:text="Registation"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:textColor="@color/black"
+            android:textColor="@color/textColor2"
+            android:fontFamily="@font/titillium_web_regular"
             />
         <TextView
             android:layout_width="match_parent"
@@ -44,199 +46,214 @@
             android:text="Create new account"
             android:layout_marginTop="5dp"
             android:textSize="18sp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="5dp"
             android:fontFamily="@font/titillium_web_regular"
-            android:text="Username"
-            android:textSize="16sp"
-            android:textStyle="bold"
             />
-        <com.google.android.material.card.MaterialCardView
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="5dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-
+            android:layout_height="match_parent"
             >
-            <EditText
-                android:id="@+id/sign_up_username"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@color/formField"
-                android:lines="1"
-                android:inputType="textShortMessage"
-                android:theme="@style/customEditText"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:paddingTop="0dp"
-
-                android:textColor="@color/black"
-                android:hint="@string/test_text"
-                android:textColorHint="@color/transparent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="40dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/titillium_web_regular"
+                        android:text="Username"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
                 />
+                <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="5dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
 
-        </com.google.android.material.card.MaterialCardView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/titillium_web_regular"
-            android:text="Email"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            />
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="5dp"
-            android:layout_marginTop="00dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-
-            >
-
-            <EditText
-                    android:id="@+id/sign_up_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:lines="1"
-                    android:inputType="textEmailAddress"
-                    android:theme="@style/customEditText"
-                    android:background="@color/formField"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:paddingTop="0dp"
-                    android:textColor="@color/black"
-                    android:hint="@string/test_text"
-                    android:textColorHint="@color/transparent"
-                    />
-        </com.google.android.material.card.MaterialCardView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/titillium_web_regular"
-            android:text="Password"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            />
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="5dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-
-            >
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/sign_up_password_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:errorEnabled="false"
-                app:hintEnabled="false"
-                app:boxBackgroundMode="none"
-                app:passwordToggleEnabled="true"
                 >
-                <EditText
-                    android:id="@+id/sign_up_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:lines="1"
-                    android:inputType="textPassword"
-                    android:theme="@style/customEditText"
-                    android:background="@color/formField"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:paddingTop="0dp"
-                    android:textColor="@color/black"
-                    android:hint="@string/test_text"
-                    android:textColorHint="@color/transparent"
+                    <EditText
+                            android:id="@+id/sign_up_username"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@color/formField"
+                            android:lines="1"
+                            android:inputType="textShortMessage"
+                            android:theme="@style/customEditText"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="0dp"
+
+                            android:textColor="@color/textColor2"
+                            android:hint="@string/test_text"
+                            android:textColorHint="@color/transparent"
                     />
-            </com.google.android.material.textfield.TextInputLayout>
-        </com.google.android.material.card.MaterialCardView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/titillium_web_regular"
-            android:text="Confirm Password"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            />
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="5dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+                </com.google.android.material.card.MaterialCardView>
 
-            >
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/sign_up_confirm_password_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:errorEnabled="false"
-                app:hintEnabled="false"
-                app:boxBackgroundMode="none"
-                app:passwordToggleEnabled="true"
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="40dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/titillium_web_regular"
+                        android:text="Email"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                />
+                <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="5dp"
+                        android:layout_marginTop="00dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+
                 >
-                <EditText
-                    android:id="@+id/sign_up_confirm_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:lines="1"
-                    android:inputType="textPassword"
-                    android:theme="@style/customEditText"
-                    android:background="@color/formField"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:paddingTop="0dp"
-                    android:textColor="@color/black"
-                    android:hint="@string/test_text"
-                    android:textColorHint="@color/transparent"
+
+                    <EditText
+                            android:id="@+id/sign_up_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:lines="1"
+                            android:inputType="textEmailAddress"
+                            android:theme="@style/customEditText"
+                            android:background="@color/formField"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="0dp"
+                            android:textColor="@color/textColor2"
+                            android:hint="@string/test_text"
+                            android:textColorHint="@color/transparent"
                     />
-            </com.google.android.material.textfield.TextInputLayout>
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/sign_up_btn_signup"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="50dp"
-            android:text="sign up"
-            app:cornerRadius="7dp"
-            app:elevation="10dp"
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="40dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/titillium_web_regular"
+                        android:text="Password"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                />
+                <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="5dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+
+                >
+                    <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/sign_up_password_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:errorEnabled="false"
+                            app:hintEnabled="false"
+                            app:boxBackgroundMode="none"
+                            app:passwordToggleEnabled="true"
+                    >
+                        <EditText
+                                android:id="@+id/sign_up_password"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:lines="1"
+                                android:inputType="textPassword"
+                                android:theme="@style/customEditText"
+                                android:background="@color/formField"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:paddingTop="0dp"
+                                android:textColor="@color/textColor2"
+                                android:hint="@string/test_text"
+                                android:textColorHint="@color/transparent"
+                        />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="40dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/titillium_web_regular"
+                        android:text="Confirm Password"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                />
+                <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="5dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+
+                >
+                    <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/sign_up_confirm_password_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:errorEnabled="false"
+                            app:hintEnabled="false"
+                            app:boxBackgroundMode="none"
+                            app:passwordToggleEnabled="true"
+                    >
+                        <EditText
+                                android:id="@+id/sign_up_confirm_password"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:lines="1"
+                                android:inputType="textPassword"
+                                android:theme="@style/customEditText"
+                                android:background="@color/formField"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:paddingTop="0dp"
+                                android:textColor="@color/textColor2"
+                                android:hint="@string/test_text"
+                                android:textColorHint="@color/transparent"
+                        />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/sign_up_btn_signup"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="50dp"
+                        android:text="sign up"
+                        app:cornerRadius="7dp"
+                        app:elevation="10dp"
+                        android:textColor="@color/white"
+
+                />
+            </LinearLayout>
+        </ScrollView>
 
 
-            />
     </LinearLayout>
 
 </LinearLayout>

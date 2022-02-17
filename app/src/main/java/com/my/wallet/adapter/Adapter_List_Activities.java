@@ -144,11 +144,11 @@ public class Adapter_List_Activities extends RecyclerView.Adapter<RecyclerView.V
 
 
     private void printItemList(ItemViewHolder itemViewHolder, int position){
-        if (!this.source.equalsIgnoreCase("dashboard")) {
+//        if (!this.source.equalsIgnoreCase("dashboard")) {
             //itemViewHolder._activity_row_cardview.setCardElevation(2.0f);
-        }
+//        }
 
-        if (this.temp_activity_list.get(this.keys.get(position)).getTitleActivities().equalsIgnoreCase("Transfer")) {
+        if(this.temp_activity_list.get(keys.get(position)).getType() == lov.activityType.TRANSFER){//if (this.temp_activity_list.get(this.keys.get(position)).getTitleActivities().equalsIgnoreCase("Transfer")) {
             itemViewHolder._activity_row_title.setText("Transfer");
             itemViewHolder._activity_row_icon.setImageResource(iconList.transfer_icon());
 
@@ -161,7 +161,7 @@ public class Adapter_List_Activities extends RecyclerView.Adapter<RecyclerView.V
         else{
             itemViewHolder._activity_row_title.setText(this.temp_activity_list.get(this.keys.get(position)).getTitleActivities());
 
-            if (this.temp_activity_list.get(this.keys.get(position)).isIncome()) {
+            if(this.temp_activity_list.get(this.keys.get(position)).getType() == lov.activityType.INCOME){//if (this.temp_activity_list.get(this.keys.get(position)).isIncome()) {
                 itemViewHolder._activity_row_amount.setTextColor(Color.parseColor("#4CAF50"));
                 itemViewHolder._activity_row_icon.setImageResource(iconList.income_list_map().get(this.temp_activity_list.get(this.keys.get(position)).getTitleActivities()));
             } else {
@@ -213,7 +213,7 @@ public class Adapter_List_Activities extends RecyclerView.Adapter<RecyclerView.V
                 })
                 .setPositiveButton("Yes",(dialog, which) -> {
                     if (f == lov.activityType.TRANSFER)
-                        DeleteTranfer(this.temp_activity_list.get(keys.get(position)), position);
+                        DeleteTransfer(this.temp_activity_list.get(keys.get(position)), position);
                     else
                         DeleteActivity(position);
                 });
@@ -284,19 +284,27 @@ public class Adapter_List_Activities extends RecyclerView.Adapter<RecyclerView.V
         }catch (Throwable t){}
     }
 
-    private void DeleteTranfer(Activities activities, int position){
+    private void DeleteTransfer(Activities activities, int position){
         try {
             popUpNotification.show(this.context, lov.popUpType.LOADING, "");
 
             String period = lov.dateFormatter3.format(activities.getDateActivities()).substring(0, 7);
 
-            JSONObject message = new JSONObject("{" +
-                    "\"id\" : \""+activities.getId()+"\"," +
-                    "\"walletIdSource\" : \""+activities.getWalletId().split("##")[0]+"\"," +
-                    "\"walletIdDestination\" : \""+activities.getWalletId().split("##")[1]+"\"," +
-                    "\"nominal\" : "+activities.getNominalActivities()+"," +
-                    "\"fee\" : "+activities.getDescActivities().split("Fee:")[1].trim()+"" +
-                    "}");
+            JSONObject message = lov.removeTransferRequest(
+                    activities.getId(),
+                    activities.getWalletId().split("##")[0],
+                    activities.getWalletId().split("##")[1],
+                    activities.getNominalActivities()+"",
+                    activities.getDescActivities().split("Fee:")[1].trim(),
+                    lov.dateFormatter4.format(activities.getDateActivities())
+                    );
+//                    new JSONObject("{" +
+//                    "\"id\" : \""+activities.getId()+"\"," +
+//                    "\"walletIdSource\" : \""+activities.getWalletId().split("##")[0]+"\"," +
+//                    "\"walletIdDestination\" : \""+activities.getWalletId().split("##")[1]+"\"," +
+//                    "\"nominal\" : "+activities.getNominalActivities()+"," +
+//                    "\"fee\" : "+activities.getDescActivities().split("Fee:")[1].trim()+"" +
+//                    "}");
 
             JsonObjectRequest request = new JsonObjectRequest(
                     Request.Method.POST, api.url + api.path_walletCancelTransfer, message,

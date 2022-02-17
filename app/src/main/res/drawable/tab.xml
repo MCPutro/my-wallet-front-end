@@ -8,7 +8,7 @@
         android:topLeftRadius="10dp"
         android:topRightRadius="10dp" />
     <stroke
-        android:color="#BBC7FF"
+        android:color="#E8EBFA"
         android:width=".5dp"
 
         />

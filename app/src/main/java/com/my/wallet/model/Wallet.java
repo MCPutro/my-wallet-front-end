@@ -38,15 +38,4 @@ public class Wallet implements Serializable {
         this.type = type;
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-                "\"id\" : \""               +this.getId()               +"\"," +
-                "\"backgroundColor\" : \""  +this.getBackgroundColor()  +"\"," +
-                "\"name\" : \""             +this.getName()             +"\"," +
-                "\"nominal\" : "            +this.getNominal()          +"," +
-                "\"textColor\" : \""        +this.getTextColor()        +"\"," +
-                "\"type\" : \""             +this.getType()             +"\"" +
-                '}';
-    }
 }

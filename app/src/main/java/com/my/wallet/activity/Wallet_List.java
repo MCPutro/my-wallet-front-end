@@ -241,8 +241,10 @@ public class Wallet_List extends AppCompatActivity{
             MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme)
                     .setTitle("Delete Wallet")
                     .setMessage(ss)
-                    .setNegativeButton("Yes", (dialog, which) -> confirmRemoveWallet(position))
-                    .setPositiveButton("No", (dialog, which) -> {
+
+
+                    .setPositiveButton("Yes", (dialog, which) -> confirmRemoveWallet(position))
+                    .setNegativeButton("No", (dialog, which) -> {
                         dialog.cancel();
                         dialog.dismiss();
                     });

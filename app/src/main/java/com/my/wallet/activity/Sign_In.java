@@ -92,7 +92,7 @@ public class Sign_In extends AppCompatActivity implements View.OnClickListener, 
     private void loginWithEmail(String email, String pass){
         try {
             String url = api.url+api.path_signIn;
-            JSONObject requestMessage = new JSONObject("{\"email\": \""+email+"\",\"password\": \""+pass+"\"} ");
+            JSONObject requestMessage = lov.signInRequest(email, pass);//new JSONObject("{\"email\": \""+email+"\",\"password\": \""+pass+"\"} ");
 
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
                     url, requestMessage, this, this

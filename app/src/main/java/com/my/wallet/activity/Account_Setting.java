@@ -83,8 +83,8 @@ public class Account_Setting extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_setting);
 
-        getWindow().setStatusBarColor(Color.WHITE);
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+//        getWindow().setStatusBarColor(Color.WHITE);
+//        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
 
         this.initialVariable();
@@ -271,13 +271,14 @@ public class Account_Setting extends AppCompatActivity implements View.OnClickLi
         try {
             showPopUpNotif(lov.popUpType.LOADING, null);
 
-            JSONObject message = new JSONObject("{" +
-                    "\"email\" : \""    +email                  +"\"," +
-                    "\"password\" : \"" +password               +"\"," +
-                    "\"uid\" : \""      +this.md.getUID()       +"\"," +
-                    "\"username\": \""  +username               +"\"," +
-                    "\"urlAvatar\": \"" +this.md.getUrlAvatar() +"\"" +
-                    "}");
+            JSONObject message = lov.updateUserInfoRequest(email, password, this.md.getUID(), username, this.md.getUrlAvatar());
+//                    new JSONObject("{" +
+//                    "\"email\" : \""    +email                  +"\"," +
+//                    "\"password\" : \"" +password               +"\"," +
+//                    "\"uid\" : \""      +this.md.getUID()       +"\"," +
+//                    "\"username\": \""  +username               +"\"," +
+//                    "\"urlAvatar\": \"" +this.md.getUrlAvatar() +"\"" +
+//                    "}");
 
             JsonObjectRequest request = new JsonObjectRequest(
                     Request.Method.POST, api.url+api.path_userUpdate,

@@ -28,6 +28,7 @@
             android:text="@string/please_wait"
             android:textSize="18sp"
             android:layout_margin="10dp"
+            android:fontFamily="@font/titillium_web_regular"
             />
         <ProgressBar
             android:layout_width="20dp"

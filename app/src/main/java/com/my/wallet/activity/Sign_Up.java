@@ -110,7 +110,7 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener, 
         try {
             int idc = 1123;
             String url = api.url+api.path_createAndLogin;
-            JSONObject reqMessage = new JSONObject("{\"email\": \""+email+"\",\"password\": \""+pass+"\",\"username\": \""+username+"\",\"deviceId\": \"" +idc+ "\" }");
+            JSONObject reqMessage = lov.signUpRequest(email, pass, username, idc+"");//new JSONObject("{\"email\": \""+email+"\",\"password\": \""+pass+"\",\"username\": \""+username+"\",\"deviceId\": \"" +idc+ "\" }");
 
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
                     url, reqMessage, this, this);

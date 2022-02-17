@@ -52,7 +52,6 @@ public class Wallet_Update extends AppCompatActivity implements View.OnClickList
 
     private String walletId = null;
     private final String errorColor = "#F4463F";
-    private final CharSequence[] list_wallet_type = {"Bank Account", "Cash", "E-Money"};
     private String selected_background_card = "background1";
     private String text_color = "#FFFFFFFF";
     private AlertDialog popUpDialog;
@@ -229,7 +228,7 @@ public class Wallet_Update extends AppCompatActivity implements View.OnClickList
                     this._wallet_update_name.setError("Can't be empty");
                     allValid--;
                 } else {
-                    this._wallet_update_name_box.setStrokeColor(_wallet_update_type_box.getStrokeColorStateList());
+                    this._wallet_update_name_box.setStrokeColor(getColor(R.color.formField));
                     this._wallet_update_name.setError(null);
                     allValid++;
                 }
@@ -245,7 +244,7 @@ public class Wallet_Update extends AppCompatActivity implements View.OnClickList
                     this._wallet_update_nominal.setError("Can't be 0 (zero)");
                     allValid--;
                 } else {
-                    this._wallet_update_nominal_box.setStrokeColor(_wallet_update_type_box.getStrokeColorStateList());
+                    this._wallet_update_nominal_box.setStrokeColor(getColor(R.color.formField));
                     this._wallet_update_nominal.setError(null);
                     allValid++;
                 }
@@ -268,9 +267,9 @@ public class Wallet_Update extends AppCompatActivity implements View.OnClickList
         if (id == this._wallet_update_type_box.getId()) {
             MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme)
                     .setTitle("Type")
-                    .setItems(list_wallet_type, (dialog, which) -> {
+                    .setItems(lov.list_wallet_type, (dialog, which) -> {
                         //_textInput_type.setText(list_wallet_type[which]);
-                        _wallet_update_type.setText(list_wallet_type[which]);
+                        _wallet_update_type.setText(lov.list_wallet_type[which]);
                         _wallet_update_type_box.setCardBackgroundColor(_wallet_update_name_box.getCardBackgroundColor());
                     })
                     ;
@@ -306,10 +305,9 @@ public class Wallet_Update extends AppCompatActivity implements View.OnClickList
                         this.text_color,
                         this._wallet_update_type.getText().toString());
 
-
                 String url = api.url+api.path_walletUpdate;
 
-                JSONObject requestMessage = new JSONObject(w.toString());
+                JSONObject requestMessage = lov.createWalletRequest(w); //new JSONObject(w.toString());
 
                 JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
                         url, requestMessage,

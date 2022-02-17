@@ -26,29 +26,8 @@ public class Activities implements //Comparable<Activities>,
     private String titleActivities, descActivities, category;
     private Double nominalActivities;
     private Date dateActivities;
-    private boolean income;
+    //private boolean income;
+    private lov.activityType type;
 
-
-    @Override
-    public String toString() {
-        String date;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            date = lov.dateFormatter3.format(dateActivities) + ":00" + TimeZone.getDefault().getDisplayName(false, TimeZone.SHORT_GMT);
-        }else{
-            date = lov.dateFormatter3.format(dateActivities) + ":00" + lov.dateFormatterZoneOnly.format(Calendar.getInstance().getTime());
-        }
-        return "{" +
-                "\"id\" : \""           + id                + "\"," +
-                "\"walletId\" : \""     + walletId          + "\"," +
-                "\"walletName\" : \""   + walletName        + "\"," +
-                "\"title\" : \""        + titleActivities   + "\"," +
-                "\"category\" : \""     + category          + "\"," +
-                "\"desc\" : \""         + descActivities    + "\"," +
-                "\"nominal\" : "        + nominalActivities + ", " +
-                "\"date\" : \""         + date              + "\"," +
-                "\"income\" : "         + income            +
-
-                "}";
-    }
 }
 

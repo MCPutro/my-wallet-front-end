@@ -308,7 +308,7 @@ public class Dashboard extends AppCompatActivity implements DrawerAdapter.OnItem
             if (!entry.getValue().getTitleActivities().equalsIgnoreCase("transfer") &&
                     (entry.getValue().getDateActivities().after(this.startDate) && entry.getValue().getDateActivities().before(this.endDate) )
             ) {
-                if (entry.getValue().isIncome()) {
+                if(entry.getValue().getType() == lov.activityType.INCOME){//if (entry.getValue().isIncome()) {
                     in = in + entry.getValue().getNominalActivities();
                 }else{
                     ex = ex + entry.getValue().getNominalActivities();

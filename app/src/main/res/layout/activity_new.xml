@@ -19,10 +19,11 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="New activity"
-            app:titleTextColor="@android:color/black"
+            app:titleTextColor="@color/textColor2"
             android:background="@color/toolbar"
             app:menu="@menu/menu_save"
             app:navigationIcon="@drawable/ic_round_arrow_back_24_black"
+            android:theme="@style/ToolbarTheme"
             />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -35,8 +36,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/tab"
-        app:tabTextColor="@android:color/black"
-        app:tabSelectedTextColor="@android:color/black"
+        app:tabTextColor="@color/textColor2"
+        app:tabSelectedTextColor="@color/textColor2"
         app:tabIndicator="@drawable/tab_selected"
         app:tabIndicatorColor="@color/colorTabSelected"
         app:tabIndicatorGravity="stretch"
@@ -101,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_toStartOf="@+id/create_history_nominal_calc"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     app:errorEnabled="true"
                     app:boxBackgroundColor="@color/formField"
                     app:boxStrokeColor="@drawable/selector_box_stroke_color"
@@ -113,7 +114,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lines="1"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         android:textAlignment="center"
                         android:textColor="#4CAF50"
@@ -127,9 +128,9 @@
 
                 <ImageButton
                         android:id="@+id/create_history_nominal_calc"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="2dp"
                         android:layout_alignParentEnd="true"
                         android:background="@mipmap/ic_calc_1"
                         android:contentDescription="@string/test_text"
@@ -164,12 +165,12 @@
                 <AutoCompleteTextView
                     android:id="@+id/create_history_category"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:editable="false"
                     android:ellipsize="end"
                     android:inputType="none"
                     android:textAppearance="?attr/textAppearanceSubtitle1"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/textColor2"
                     android:textSize="18sp"
                     android:hint="@string/test_text"
                     android:textColorHint="@color/transparent" />
@@ -204,12 +205,12 @@
                 <AutoCompleteTextView
                     android:id="@+id/create_history_wallet"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:editable="false"
                     android:ellipsize="end"
                     android:inputType="none"
-                    android:textAppearance="?attr/textAppearanceSubtitle1"
-                    android:textColor="@android:color/black"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:textColor="@color/textColor2"
                     android:textSize="18sp"
                     android:hint="@string/test_text"
                     android:textColorHint="@color/transparent" />
@@ -233,7 +234,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 app:boxBackgroundColor="@color/formField"
                 app:boxStrokeColor="@drawable/selector_box_stroke_color"
                 app:boxStrokeWidth="2dp"
@@ -247,10 +248,10 @@
                     android:editable="false"
                     android:lines="1"
                     android:maxLines="1"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/textColor2"
                     android:textSize="18sp"
                     android:hint="@string/test_text"
-                    android:textColorHint="@color/transparent" />
+                    android:textColorHint="@color/transparent"/>
             </com.google.android.material.textfield.TextInputLayout>
             <TextView
                 android:layout_marginTop="10dp"
@@ -272,9 +273,8 @@
                 android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 app:errorEnabled="true"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 app:boxBackgroundColor="@color/formField"
                 app:boxStrokeColor="@drawable/selector_box_stroke_color"
                 app:boxStrokeWidth="2dp"
@@ -288,7 +288,7 @@
                     android:inputType="text"
                     android:lines="1"
                     android:maxLines="1"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/textColor2"
                     android:textSize="18sp"
                     android:hint="@string/test_text"
                     android:textColorHint="@color/transparent"
@@ -297,273 +297,317 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
     </ScrollView>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <ScrollView
         android:id="@+id/activity_new_layout_trf"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:visibility="gone"
         >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:text="Source Wallet"
-            android:textAlignment="center"
-            android:textColor="#929AAC"
-            android:textSize="15sp"
-            />
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/trf_from"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="@color/transferField"
+            android:orientation="vertical"
             >
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:orientation="horizontal"
-                >
-                <ImageView
-                    android:id="@+id/trf_from_icon"
+            <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_question"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Source Wallet"
+                    android:textAlignment="center"
+                    android:textColor="#929AAC"
+                    android:textSize="15sp"
                     />
-                <RelativeLayout
+            <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/trf_from"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/transferField"
                     >
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentStart="true"
-                        android:layout_toStartOf="@+id/trf_from_nominal"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/trf_from_name"
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:orientation="horizontal"
+                        >
+                    <ImageView
+                            android:id="@+id/trf_from_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_condensed_bold"
-                            android:gravity="center"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
+                            android:src="@mipmap/ic_question"
                             />
+                    <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginEnd="10dp"
+                            >
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentStart="true"
+                                android:layout_toStartOf="@+id/trf_from_nominal"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical">
+
+                            <TextView
+                                    android:id="@+id/trf_from_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_condensed_bold"
+                                    android:gravity="center"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    />
+
+                            <TextView
+                                    android:id="@+id/trf_from_id"
+                                    android:layout_width="120dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="0dp"
+                                    android:layout_marginTop="0dp"
+                                    android:maxLines="1"
+                                    android:ellipsize="middle"
+                                    android:textColor="#929AAC"
+                                    android:textSize="15sp"
+                                    />
+                        </LinearLayout>
 
                         <TextView
-                            android:id="@+id/trf_from_id"
-                            android:layout_width="120dp"
-                            android:layout_height="20dp"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginTop="0dp"
-                            android:maxLines="1"
-                            android:ellipsize="middle"
-                            android:textColor="#929AAC"
-                            android:textSize="15sp"
+                                android:id="@+id/trf_from_nominal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/roboto_condensed_light"
+                                android:gravity="center"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                />
+                    </RelativeLayout>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </com.google.android.material.card.MaterialCardView>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Destination Wallet"
+                    android:textAlignment="center"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#929AAC"
+                    android:textSize="15sp"
+                    />
+            <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/trf_to"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/transferField"
+                    >
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:orientation="horizontal"
+                        >
+
+                    <ImageView
+                            android:id="@+id/trf_to_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_question"
                             />
-                    </LinearLayout>
+                    <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginEnd="10dp"
+                            >
 
-                    <TextView
-                        android:id="@+id/trf_from_nominal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentEnd="true"
-                        android:fontFamily="@font/roboto_condensed_light"
-                        android:gravity="center"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        />
-                </RelativeLayout>
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentStart="true"
+                                android:layout_toStartOf="@+id/trf_to_nominal"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical">
 
+                            <TextView
+                                    android:id="@+id/trf_to_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_condensed_bold"
+                                    android:gravity="center"
+                                    android:textSize="18sp"
+                                    />
 
+                            <TextView
+                                    android:id="@+id/trf_to_id"
+                                    android:layout_width="120dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="0dp"
+                                    android:layout_marginTop="0dp"
+                                    android:textColor="#929AAC"
+                                    android:maxLines="1"
+                                    android:ellipsize="middle"
+                                    android:textSize="15sp"
+
+                                    />
+                        </LinearLayout>
+
+                        <TextView
+                                android:id="@+id/trf_to_nominal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/roboto_condensed_light"
+                                android:gravity="center"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                />
+                    </RelativeLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date"
+                    android:textColor="#7A8398"
+                    android:textSize="15sp"
+                    android:layout_marginStart="30dp"
+                    android:textStyle="bold"
+                    />
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_date_range_24_black"
+                    />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/trf_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="10dp"
+                    android:hint="e.x: 20 Feb 2022 14:23"
+                    android:textColor="@color/textColor2"
+                    android:textSize="20sp"
+                    android:editable="false"
+                    android:textColorHint="@color/transparent"
+                    />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-        </com.google.android.material.card.MaterialCardView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Destination Wallet"
-            android:textAlignment="center"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:textColor="#929AAC"
-            android:textSize="15sp"
-            />
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/trf_to"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="@color/transferField"
-            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount"
+                android:textColor="#7A8398"
+                android:textSize="15sp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                />
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
                 >
-
-                <ImageView
-                    android:id="@+id/trf_to_icon"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_question"
+                    android:text="@string/currency"
+                    android:textColor="?attr/colorControlNormal"
+                    android:textSize="15sp"
                     />
-                <RelativeLayout
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/trf_nominal"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginEnd="10dp"
-                    >
-
-                    <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentStart="true"
-                            android:layout_toStartOf="@+id/trf_to_nominal"
-                            android:gravity="center_vertical"
-                            android:orientation="vertical">
-
-                        <TextView
-                                android:id="@+id/trf_to_name"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/roboto_condensed_bold"
-                                android:gravity="center"
-                                android:textSize="18sp"
-                                />
-
-                        <TextView
-                                android:id="@+id/trf_to_id"
-                                android:layout_width="120dp"
-                                android:layout_height="20dp"
-                                android:layout_marginStart="0dp"
-                                android:layout_marginTop="0dp"
-                                android:textColor="#929AAC"
-                                android:maxLines="1"
-                                android:ellipsize="middle"
-                                android:textSize="15sp"
-
-                                />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/trf_to_nominal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentEnd="true"
-                        android:fontFamily="@font/roboto_condensed_light"
-                        android:gravity="center"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        />
-                </RelativeLayout>
+                    android:layout_height="48dp"
+                    android:layout_marginStart="10dp"
+                    android:hint="e.x: 20 Feb 2022 14:23"
+                    android:textColor="@color/textColor2"
+                    android:textSize="20sp"
+                    android:editable="false"
+                    android:textColorHint="@color/transparent"
+                    />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-        </com.google.android.material.card.MaterialCardView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Amount"
-            android:textColor="#7A8398"
-            android:textSize="15sp"
-            android:layout_marginStart="30dp"
-            android:textStyle="bold"
-            />
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            >
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/currency"
-                android:textColor="#BCC4DF"
-                android:textSize="15sp"
-                />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fee"
+                    android:textColor="#7A8398"
+                    android:textSize="15sp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:textStyle="bold"
+                    />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/trf_nominal"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginStart="10dp"
-                android:hint="0"
-                android:inputType="number"
-                android:textColor="#7E879C"
-                android:textSize="20sp"
-                android:textStyle="bold"
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    >
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/currency"
+                        android:textColor="?attr/colorControlNormal"
+                        android:textSize="15sp"
+                        />
 
-                />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fee"
-            android:textColor="#7A8398"
-            android:textSize="15sp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
-            android:textStyle="bold"
-            />
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/currency"
-                android:textColor="#BCC4DF"
-                android:textSize="15sp"
-                />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/trf_nominal_fee"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginStart="10dp"
-                android:hint="0"
-                android:inputType="number"
-                android:textColor="#7E879C"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+                <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/trf_nominal_fee"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="10dp"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:textColor="@color/textColor2"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        />
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        </LinearLayout>
+
+    </ScrollView>
+
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -66,7 +66,8 @@
                 android:layout_marginTop="0dp"
                 android:textStyle="bold"
                 android:textSize="20sp"
-                android:textColor="@color/black"
+                android:textColor="@color/textColor2"
+                android:fontFamily="@font/titillium_web_regular"
                 />
         <TextView
             android:id="@+id/text_log"
@@ -118,7 +119,7 @@
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
 
-                android:textColor="@color/black"
+                android:textColor="@color/textColor2"
                 android:theme="@style/customEditText"
 
                 android:hint="@string/test_text"
@@ -168,7 +169,7 @@
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
 
-                    android:textColor="@color/black"
+                    android:textColor="@color/textColor2"
                     android:theme="@style/customEditText"
 
                     android:hint="@string/test_text"
@@ -198,7 +199,7 @@
             android:text="sign in"
             app:cornerRadius="7dp"
             app:elevation="10dp"
-
+            android:textColor="@color/white"
             />
     </LinearLayout>
 
