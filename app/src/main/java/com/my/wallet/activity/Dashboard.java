@@ -26,7 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.my.wallet.adapter.Adapter_List_Activities;
+import com.my.wallet.adapter.Adapter_List_Activity;
 import com.my.wallet.R;
 import com.my.wallet.env.dataStore;
 import com.my.wallet.env.lov;
@@ -268,7 +268,7 @@ public class Dashboard extends AppCompatActivity implements DrawerAdapter.OnItem
         return ContextCompat.getColor(this, res);
     }
 
-    private Adapter_List_Activities laa;
+    private Adapter_List_Activity laa;
     public void showRecentActivity(){
         //test
         //TimeZone tz = TimeZone.getDefault();
@@ -281,7 +281,7 @@ public class Dashboard extends AppCompatActivity implements DrawerAdapter.OnItem
             //this.md.getListActivities().put("7", new Activities("wallet1", "bank anda", "Transfer", 999.0, "test intenal transfer to XXX, fee 0", date1, false));
             showNotifNoData(false);
 
-            laa = new Adapter_List_Activities(this, this.md.getN_show_list(), this.md, this.startDate, this.endDate, "dashboard");
+            laa = new Adapter_List_Activity(this, this.md.getN_show_list(), this.md, this.startDate, this.endDate, "dashboard");
             this._dashboard_Recent_Activity_list.setAdapter(laa);
         } else {
             setTextComponent(this.md.getListWallet(), md.getListActivities());

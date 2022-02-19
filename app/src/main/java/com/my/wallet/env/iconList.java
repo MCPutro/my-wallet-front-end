@@ -28,15 +28,26 @@ public class iconList {
     }
 
 
-    public static Map<String, Integer> income_list_map(){
-        Map<String, Integer> temp = new LinkedHashMap<>();
-        temp.put("Salary", R.mipmap.ic_salery);
-        temp.put("Gift", R.mipmap.ic_hadiah);
-        temp.put("Refunds", R.mipmap.ic_refund);
-        temp.put("Investment", R.mipmap.ic_inver);
-        temp.put("Reward", R.mipmap.ic_reward);
-        temp.put("Other", R.mipmap.ic_other_income);
-        return temp;
+//    public static Map<String, Integer> income_list_map(){
+//        Map<String, Integer> temp = new LinkedHashMap<>();
+//        temp.put("Salary", R.mipmap.ic_salery);
+//        temp.put("Gift", R.mipmap.ic_hadiah);
+//        temp.put("Refunds", R.mipmap.ic_refund);
+//        temp.put("Investment", R.mipmap.ic_inver);
+//        temp.put("Reward", R.mipmap.ic_reward);
+//        temp.put("Other", R.mipmap.ic_other_income);
+//        return temp;
+//    }
+
+    public static Map<String, category> income_list_map(){
+        Map<String, category> map = new LinkedHashMap<>();
+        map.put("Salary", new category(R.mipmap.ic_salery, null));
+        map.put("Gift", new category(R.mipmap.ic_hadiah, null));
+        map.put("Refunds", new category(R.mipmap.ic_refund, null));
+        map.put("Investment", new category(R.mipmap.ic_inver, null));
+        map.put("Reward", new category(R.mipmap.ic_reward, null));
+        map.put("Other", new category(R.mipmap.ic_other_income, null));
+        return map;
     }
 
 

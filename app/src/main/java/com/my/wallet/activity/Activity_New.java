@@ -30,6 +30,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.maltaisn.calcdialog.CalcDialog;
 import com.my.wallet.adapter.Adapter_List_Category;
 import com.my.wallet.R;
+import com.my.wallet.adapter.Adapter_List_Wallet;
 import com.my.wallet.env.api;
 import com.my.wallet.env.dataStore;
 import com.my.wallet.env.iconList;
@@ -55,14 +56,16 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
 
     private lov.trf trf;
 
+    private enum selectedField{
+        CATEGORY,
+        WALLET
+    }
+
     /**activity type**/
     private lov.activityType type;
     /**calculator**/
     private CalcDialog calcDialog;
     private BigDecimal value_nominal = null;
-
-    // loading animation
-    // private AlertDialog popUpDialog;
 
     /**declare component**/
     private MaterialToolbar _create_history_toolBar;
@@ -97,9 +100,19 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
     private TextView _trf_to_name, _trf_to_id, _trf_to_nominal;
     private AppCompatEditText _trf_nominal, _trf_nominal_fee, _trf_date;
 
+    /**Adapter**/
+    private Adapter_List_Category ALC;
+    private Adapter_List_Wallet wla;
+
     public void setCategory(String category, String subCategory) {
         this.category = category;
         this._create_history_category.setText(subCategory);
+    }
+
+    public void setSelWallet(int selWallet, String name) {
+        this.selWallet = selWallet;
+        this._create_history_wallet.setText(name);
+        closeBottomSheet();
     }
 
     @Override
@@ -122,11 +135,12 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
         //
         initVariable();
 
-        setAdapterActivityType();
-
         setAdapterWalletList();
 
         setListenerComponent();
+
+        this._activity_new_layout_inex.setVisibility(View.VISIBLE);
+        this._activity_new_layout_trf.setVisibility(View.GONE);
 
     }
 
@@ -213,7 +227,7 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
             @Override public void onTabSelected(TabLayout.Tab tab) {
                 if (tab.getText().toString().equalsIgnoreCase("income")) {
                     type = lov.activityType.INCOME;
-                    setAdapterActivityType();
+                    _create_history_category.setText(null);
 
                     _create_history_toolBar.setTitle("New activity");
 
@@ -224,7 +238,7 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
                 }else
                 if (tab.getText().toString().equalsIgnoreCase("expense")) {
                     type = lov.activityType.EXPENSE;
-                    setAdapterActivityType();
+                    _create_history_category.setText(null);
 
                     _create_history_toolBar.setTitle("New activity");
 
@@ -235,6 +249,7 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
                 }else
                 if (tab.getText().toString().equalsIgnoreCase("transfer")) {
                     type = lov.activityType.TRANSFER;
+                    _create_history_category.setText(null);
 
                     _create_history_toolBar.setTitle("Transfer between own wallet");
 
@@ -248,14 +263,18 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
         this._create_history_nominal.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) showCalculator();
         });
+        this._create_history_nominal.setOnClickListener(v -> showCalculator());
 
         _create_history_category.setOnClickListener(v -> {
             if (type == lov.activityType.EXPENSE) {
-                showBottomSheetDialog("expense-category");
+                showBottomSheetDialog(lov.activityType.EXPENSE, selectedField.CATEGORY);
+            }else if (type == lov.activityType.INCOME) {
+                showBottomSheetDialog(lov.activityType.INCOME, selectedField.CATEGORY);
             }
         });
 
-        this._create_history_wallet.setOnItemClickListener((parent, view, position, id) -> selWallet = position);
+//        this._create_history_wallet.setOnItemClickListener((parent, view, position, id) -> selWallet = position);
+        this._create_history_wallet.setOnClickListener(v -> showBottomSheetDialog(this.type, selectedField.WALLET));
         this._create_history_wallet.addTextChangedListener(new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
             @Override public void onTextChanged(CharSequence s, int start, int before, int count) { }
@@ -281,21 +300,24 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
         /**trf**/
         _trf_from.setOnClickListener(view -> {
             trf = lov.trf.SOURCE;
-            showBottomSheetDialog("wallet");
+            showBottomSheetDialog(lov.activityType.TRANSFER, selectedField.WALLET);
         });
         _trf_to.setOnClickListener(v -> {
             trf = lov.trf.DESTINATION;
-            showBottomSheetDialog("wallet");
+            showBottomSheetDialog(lov.activityType.TRANSFER, selectedField.WALLET);
         });
         _trf_date.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) showDateDialog();
         });
+        _trf_date.setOnClickListener(v -> showDateDialog());
+
         _trf_nominal.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) showCalculator();
         });
+        _trf_nominal.setOnClickListener(v -> showCalculator());
     }
 
-    private void showBottomSheetDialog(String type){
+    private void showBottomSheetDialog(lov.activityType type, selectedField field){
         bottomSheetDialog = new BottomSheetDialog(this);
         LayoutInflater inflater = LayoutInflater.from(this);
 
@@ -317,17 +339,35 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
         behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         //
 
-        if (type.equalsIgnoreCase("wallet")) {
+        if (type == lov.activityType.TRANSFER){
             //set list view
             title.setText("My Wallet");
-            walletListAdapter wla = new walletListAdapter(this);
+            this.wla = new Adapter_List_Wallet(this, this.md, this.trf, this.type);
             bottomRecyclerView.setAdapter(wla);
         }
         else
-        if (type.equalsIgnoreCase("expense-category")){
-            title.setText("Category");
-            Adapter_List_Category ALC = new Adapter_List_Category(this, iconList.expense_category());
-            bottomRecyclerView.setAdapter(ALC);
+        if (type == lov.activityType.EXPENSE){
+            if (field == selectedField.CATEGORY) {
+                title.setText("Expense Category");
+                this.ALC = new Adapter_List_Category(this, iconList.expense_category(), type);
+                bottomRecyclerView.setAdapter(ALC);
+            }else{
+                title.setText("My Wallet");
+                this.wla = new Adapter_List_Wallet(this, this.md, this.trf, this.type);
+                bottomRecyclerView.setAdapter(wla);
+            }
+        }
+        else
+        if (type == lov.activityType.INCOME){
+            if (field == selectedField.CATEGORY) {
+                title.setText("Income Category");
+                this.ALC = new Adapter_List_Category(this, iconList.income_list_map(), type);
+                bottomRecyclerView.setAdapter(ALC);
+            }else{
+                title.setText("My Wallet");
+                this.wla = new Adapter_List_Wallet(this, this.md, this.trf, this.type);
+                bottomRecyclerView.setAdapter(wla);
+            }
         }
         bottomSheetDialog.show();
     }
@@ -456,7 +496,7 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
 
     }
 
-    private void updateTransferData(lov.trf t, String id){
+    public void updateTransferData(lov.trf t, String id){
         if (t == lov.trf.SOURCE) {
             this._trf_from_icon.setImageResource(iconList.wallet_type_color().get(md.getListWallet().get(id).getType()));
             this._trf_from_name.setText(md.getListWallet().get(id).getName());
@@ -478,37 +518,14 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
         this.bottomSheetDialog.dismiss();
     }
 
-    private void setAdapterActivityType() {
-        ArrayAdapter<String> adapter = null;
-        ArrayList<String> list;
-        this._create_history_category.setText(null);
-        switch (this.type){
-            case INCOME:
-                list = new ArrayList<>(iconList.income_list_map().keySet());
-                adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, list);
-                this._create_history_nominal.setTextColor(Color.parseColor(this.inColor));
-                break;
-            case EXPENSE:
-                //list = new ArrayList<>(iconList.expense_list_map().keySet());
-                //adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, list);
-                //this._create_history_nominal.setTextColor(Color.parseColor(this.exColor));
-                break;
-            default:
-                break;
-        }
-        this._create_history_category.setAdapter(adapter);
-
-
-    }
-
     private void setAdapterWalletList(){
-        ArrayList<String> walletList = new ArrayList<>();
-        for (Map.Entry<String, Wallet> w : this.md.getListWallet().entrySet()) {
-            walletList.add(w.getValue().getName());
-        }
-
-        ArrayAdapter<String> adapterWalletList = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, walletList);
-        this._create_history_wallet.setAdapter(adapterWalletList);
+//        ArrayList<String> walletList = new ArrayList<>();
+//        for (Map.Entry<String, Wallet> w : this.md.getListWallet().entrySet()) {
+//            walletList.add(w.getValue().getName());
+//        }
+//
+//        ArrayAdapter<String> adapterWalletList = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, walletList);
+//        this._create_history_wallet.setAdapter(adapterWalletList);
 
     }
 
@@ -696,61 +713,5 @@ public class Activity_New extends AppCompatActivity implements CalcDialog.CalcDi
         return temp;
     }
 
-    class walletListAdapter extends RecyclerView.Adapter<walletListAdapter.walletHolder>{
-        private final Context context;
-        private final LayoutInflater layoutInflater;
-        private final List<String> keys = new ArrayList<>(md.getListWallet().keySet());
-
-        public walletListAdapter(Context context) {
-            this.context = context;
-            this.layoutInflater = LayoutInflater.from(this.context);
-        }
-
-        @NonNull
-        @Override
-        public walletHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new walletHolder(this.layoutInflater.inflate(R.layout.item_wallet_trf, parent, false));
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull walletHolder holder, int position) {
-            holder.name.setText(md.getListWallet().get(this.keys.get(position)).getName());
-
-            holder.id.setText(md.getListWallet().get(this.keys.get(position)).getId());
-
-            holder.nominal.setText(getString(R.string.currency)+" "+lov.currencyFormat.format(md.getListWallet().get(this.keys.get(position)).getNominal()));
-
-            holder.logo.setImageResource(iconList.wallet_type_color().get(md.getListWallet().get(this.keys.get(position)).getType()));
-
-            holder.layout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //Toast.makeText(Activity_New.this, "dari : "+trf.name(), Toast.LENGTH_SHORT).show();
-                    updateTransferData(trf, keys.get(holder.getAdapterPosition()));
-                }
-            });
-        }
-
-        @Override
-        public int getItemCount() {
-            return md.getListWallet().size();
-        }
-
-        public class walletHolder extends RecyclerView.ViewHolder {
-            MaterialCardView layout;
-            ImageView logo;
-            TextView name, nominal, id;
-
-            public walletHolder(@NonNull View itemView) {
-                super(itemView);
-                this.layout = itemView.findViewById(R.id.item_wallet_trf_layout);
-                this.logo = itemView.findViewById(R.id.item_wallet_trf_icon);
-                this.name = itemView.findViewById(R.id.item_wallet_trf_name);
-                this.id = itemView.findViewById(R.id.item_wallet_trf_id);
-                this.nominal = itemView.findViewById(R.id.item_wallet_trf_nominal);
-
-            }
-        }
-    }
 
 }

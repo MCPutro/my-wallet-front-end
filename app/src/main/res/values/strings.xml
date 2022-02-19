@@ -7,12 +7,16 @@
 
     <string name="test_text">0000</string>
 
-    <string name="email">email@gmail.com</string>
-    <string name="pass">123456789</string>
+    <string name="email_test">email@gmail.com</string>
+    <string name="pass_test">123456789</string>
 
     <string name="this_month">This Month</string>
     <string name="last_month">Last Month</string>
     <string name="more">Other</string>
 
     <string name="category">Category</string>
+
+    <string name="income_caps">Income</string>
+    <string name="expense_caps">Expense</string>
+    <string name="transfer_caps">Transfer</string>
 </resources>

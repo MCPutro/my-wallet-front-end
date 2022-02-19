@@ -96,6 +96,7 @@
                             android:text="@string/income"
                             android:textColor="#388E3C"
                             android:textSize="18sp"
+                            android:fontFamily="@font/titillium_web_regular"
                             />
 
                     <TextView
@@ -142,6 +143,7 @@
                             android:text="@string/expense"
                             android:textColor="#E91E63"
                             android:textSize="18sp"
+                            android:fontFamily="@font/titillium_web_regular"
                             />
 
                     <TextView

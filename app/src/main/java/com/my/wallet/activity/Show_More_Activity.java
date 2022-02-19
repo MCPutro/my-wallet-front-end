@@ -12,7 +12,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.tabs.TabLayout;
-import com.my.wallet.adapter.Adapter_List_Activities;
+import com.my.wallet.adapter.Adapter_List_Activity;
 import com.my.wallet.R;
 import com.my.wallet.env.api;
 import com.my.wallet.env.dataStore;
@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
 public class Show_More_Activity extends AppCompatActivity {
     private MyData md;
     private Date startDate, endDate;
-    private Adapter_List_Activities adapterList;
+    private Adapter_List_Activity adapterList;
     //private String custem_periode;
 
 
@@ -120,7 +120,7 @@ public class Show_More_Activity extends AppCompatActivity {
     }
 
     private void reload(){
-        adapterList = new Adapter_List_Activities( this, this.md.getListActivities().size(), this.md, this.startDate, this.endDate, "show_more");
+        adapterList = new Adapter_List_Activity( this, this.md.getListActivities().size(), this.md, this.startDate, this.endDate, "show_more");
         this._Activity_show_more_list.setAdapter(adapterList);
     }
 

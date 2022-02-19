@@ -15,6 +15,7 @@ import com.my.wallet.R;
 import com.my.wallet.activity.Activity_New;
 import com.my.wallet.env.category;
 import com.my.wallet.env.iconList;
+import com.my.wallet.env.lov;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -26,11 +27,13 @@ public class Adapter_List_Category extends RecyclerView.Adapter<Adapter_List_Cat
     private final Context context;
     //private Map<String, category> category;
     private final List<String> keys;
+    private lov.activityType type;
 
-    public Adapter_List_Category(Context context, Map<String, category> category) {
+    public Adapter_List_Category(Context context, Map<String, category> category, lov.activityType type) {
         this.context = context;
         //this.category = category;
         this.keys = new ArrayList<>(category.keySet());
+        this.type = type;
     }
 
     @NonNull
@@ -44,13 +47,24 @@ public class Adapter_List_Category extends RecyclerView.Adapter<Adapter_List_Cat
     @Override
     public void onBindViewHolder(@NonNull @NotNull myHolder h, int position) {
         String key = this.keys.get(position);
-        h.logo_category.setImageResource(iconList.expense_category().get(key).getLogo_category());
 
         h.text_category.setText(key);
 
+        if (this.type == lov.activityType.EXPENSE) {
+            h.logo_category.setImageResource(iconList.expense_category().get(key).getLogo_category());
+        }else{
+            h.logo_category.setImageResource(iconList.income_list_map().get(key).getLogo_category());
+        }
+
         h.category_layout.setOnClickListener(v -> {
-            showSubCategory(key);
+            if (this.type == lov.activityType.EXPENSE) {showSubCategory(key);}
+            else
+            if (this.type == lov.activityType.INCOME) {
+                ((Activity_New) this.context).setCategory(key, key);
+                ((Activity_New) this.context).closeBottomSheet();
+            }
         });
+
     }
 
     private void showSubCategory(String key) {

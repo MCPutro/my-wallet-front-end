@@ -33,7 +33,7 @@ import org.json.JSONObject;
 
 import java.util.*;
 
-public class Adapter_List_Activities extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class Adapter_List_Activity extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     private static final int TYPE_FOOTER = 0;
     private static final int TYPE_ITEM = 1;
@@ -46,7 +46,7 @@ public class Adapter_List_Activities extends RecyclerView.Adapter<RecyclerView.V
     private String source;
     private Boolean []listExpand;
 
-    public Adapter_List_Activities(Context context, int limitListView, MyData md, Date startDate, Date endDate, String source) {
+    public Adapter_List_Activity(Context context, int limitListView, MyData md, Date startDate, Date endDate, String source) {
         this.context = context;
         this.md = md;
         this.limitListView = limitListView;
@@ -140,9 +140,6 @@ public class Adapter_List_Activities extends RecyclerView.Adapter<RecyclerView.V
     }
 
 
-
-
-
     private void printItemList(ItemViewHolder itemViewHolder, int position){
 //        if (!this.source.equalsIgnoreCase("dashboard")) {
             //itemViewHolder._activity_row_cardview.setCardElevation(2.0f);
@@ -159,18 +156,17 @@ public class Adapter_List_Activities extends RecyclerView.Adapter<RecyclerView.V
             });
         }
         else{
-            itemViewHolder._activity_row_title.setText(this.temp_activity_list.get(this.keys.get(position)).getTitleActivities());
+            String title = this.temp_activity_list.get(this.keys.get(position)).getTitleActivities();
+            itemViewHolder._activity_row_title.setText(title);
 
             if(this.temp_activity_list.get(this.keys.get(position)).getType() == lov.activityType.INCOME){//if (this.temp_activity_list.get(this.keys.get(position)).isIncome()) {
                 itemViewHolder._activity_row_amount.setTextColor(Color.parseColor("#4CAF50"));
-                itemViewHolder._activity_row_icon.setImageResource(iconList.income_list_map().get(this.temp_activity_list.get(this.keys.get(position)).getTitleActivities()));
+                itemViewHolder._activity_row_icon.setImageResource(iconList.income_list_map().get(title).getLogo_category());
             } else {
                 itemViewHolder._activity_row_amount.setTextColor(Color.parseColor("#E91E63"));
-                //itemViewHolder._activity_row_icon.setImageResource(iconList.expense_list_map().get(this.temp_activity_list.get(this.keys.get(position)).getTitleActivities()));
 
                 String k = this.temp_activity_list.get(keys.get(position)).getCategory();
-                String sk = this.temp_activity_list.get(this.keys.get(position)).getTitleActivities();
-                itemViewHolder._activity_row_icon.setImageResource(iconList.expense_category().get(k).getSub_category().get(sk));
+                itemViewHolder._activity_row_icon.setImageResource(iconList.expense_category().get(k).getSub_category().get(title));
 
             }
 

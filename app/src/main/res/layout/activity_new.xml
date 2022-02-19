@@ -47,21 +47,22 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         app:tabMinWidth="117dp"
+        app:tabTextAppearance="@style/font_tab"
         >
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="INCOME"
+            android:text="@string/income_caps"
             />
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="EXPENSE"
+            android:text="@string/expense_caps"
             />
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TRANSFER"
+            android:text="@string/transfer_caps"
             />
     </com.google.android.material.tabs.TabLayout>
 
@@ -69,7 +70,7 @@
         android:id="@+id/activity_new_layout_inex"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         >
         <androidx.appcompat.widget.LinearLayoutCompat
 
@@ -317,6 +318,7 @@
                     android:textAlignment="center"
                     android:textColor="#929AAC"
                     android:textSize="15sp"
+                    android:fontFamily="@font/titillium_web_regular"
                     />
             <com.google.android.material.card.MaterialCardView
                     android:id="@+id/trf_from"
@@ -406,6 +408,7 @@
                     android:layout_marginTop="10dp"
                     android:textColor="#929AAC"
                     android:textSize="15sp"
+                    android:fontFamily="@font/titillium_web_regular"
                     />
             <com.google.android.material.card.MaterialCardView
                     android:id="@+id/trf_to"
@@ -494,6 +497,7 @@
                     android:textSize="15sp"
                     android:layout_marginStart="30dp"
                     android:textStyle="bold"
+                    android:fontFamily="@font/titillium_web_regular"
                     />
             <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
@@ -532,6 +536,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:textStyle="bold"
+                android:fontFamily="@font/titillium_web_regular"
                 />
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -572,6 +577,7 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:textStyle="bold"
+                    android:fontFamily="@font/titillium_web_regular"
                     />
 
             <androidx.appcompat.widget.LinearLayoutCompat

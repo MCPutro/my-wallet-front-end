@@ -27,19 +27,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:text="My wallet"
                 android:fontFamily="@font/titillium_web_regular"
                 android:textColor="@color/textDiff"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
+                android:layout_centerVertical="false"
                 />
 
     </RelativeLayout>
-
-
 
 
     <androidx.recyclerview.widget.RecyclerView
