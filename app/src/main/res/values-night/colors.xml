@@ -50,5 +50,5 @@
 
     <color name="textColor2">@color/white</color>
 
-    <color name="floatButton" >#61D1D5</color>
+    <color name="floatButton" >#67CECD</color>
 </resources>

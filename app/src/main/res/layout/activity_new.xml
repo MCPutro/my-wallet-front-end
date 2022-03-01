@@ -319,6 +319,7 @@
                     android:textColor="#929AAC"
                     android:textSize="15sp"
                     android:fontFamily="@font/titillium_web_regular"
+                    android:textStyle="bold"
                     />
             <com.google.android.material.card.MaterialCardView
                     android:id="@+id/trf_from"
@@ -409,6 +410,7 @@
                     android:textColor="#929AAC"
                     android:textSize="15sp"
                     android:fontFamily="@font/titillium_web_regular"
+                    android:textStyle="bold"
                     />
             <com.google.android.material.card.MaterialCardView
                     android:id="@+id/trf_to"
@@ -498,6 +500,7 @@
                     android:layout_marginStart="30dp"
                     android:textStyle="bold"
                     android:fontFamily="@font/titillium_web_regular"
+
                     />
             <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
